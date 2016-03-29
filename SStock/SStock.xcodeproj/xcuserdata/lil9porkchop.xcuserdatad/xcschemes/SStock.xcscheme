@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8C3B29831CA3795000D51EC1"
+               BlueprintIdentifier = "8C0DCAD41CA5959100B140BE"
                BuildableName = "SStock.app"
                BlueprintName = "SStock"
                ReferencedContainer = "container:SStock.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8C3B29831CA3795000D51EC1"
+            BlueprintIdentifier = "8C0DCAD41CA5959100B140BE"
             BuildableName = "SStock.app"
             BlueprintName = "SStock"
             ReferencedContainer = "container:SStock.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8C3B29831CA3795000D51EC1"
+            BlueprintIdentifier = "8C0DCAD41CA5959100B140BE"
             BuildableName = "SStock.app"
             BlueprintName = "SStock"
             ReferencedContainer = "container:SStock.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8C3B29831CA3795000D51EC1"
+            BlueprintIdentifier = "8C0DCAD41CA5959100B140BE"
             BuildableName = "SStock.app"
             BlueprintName = "SStock"
             ReferencedContainer = "container:SStock.xcodeproj">
