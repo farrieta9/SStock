@@ -144,9 +144,11 @@
                     <connections>
                         <outlet property="searchBar" destination="6ek-nN-oCp" id="0kb-lt-hX7"/>
                         <outlet property="tableView" destination="TrJ-k7-qft" id="3Qm-82-dM9"/>
+                        <segue destination="lJU-sB-JHc" kind="unwind" identifier="unwindFromSearchVC" unwindAction="unwindFromSearchVC:" id="VcU-Ly-EZw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8td-c2-7EU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lJU-sB-JHc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="443" y="-1052"/>
         </scene>

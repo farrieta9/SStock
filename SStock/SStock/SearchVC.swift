@@ -14,6 +14,8 @@ class SearchVC: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     
     var tableData = [Stock]()
+    var selectedStock = Stock()
+    
 }
 
 extension SearchVC: UISearchBarDelegate{
@@ -45,11 +47,11 @@ extension SearchVC: UITableViewDataSource{
 
 extension SearchVC: UITableViewDelegate{
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath.row) // Print selected row
-        print(self.tableData[indexPath.row].dataset_code)
+        selectedStock = self.tableData[indexPath.row]
         
         // Dismiss screen upon clicking on a row
-        navigationController?.popViewControllerAnimated(true)
+        self.performSegueWithIdentifier("unwindFromSearchVC", sender: self)
+        navigationController?.popViewControllerAnimated(true) // Is this call necessary?
     }
 }
 

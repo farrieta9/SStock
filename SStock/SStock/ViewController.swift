@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var stocks = ["Google", "GE", "AMD"]
+//    var stocks = ["Google", "GE", "AMD"]
     
     var tableData = [Stock]()
 
@@ -41,19 +41,32 @@ class ViewController: UIViewController {
 //        collectionView.reloadData()
 //    }
     
-
-
+    @IBAction func unwindFromSearchVC(sender: UIStoryboardSegue) {
+        // http://stackoverflow.com/questions/12509422/how-to-perform-unwind-segue-programmatically
+        // Second solution worked from 
+        print("Start")
+        let item = sender.sourceViewController as! SearchVC
+        print(item.selectedStock.dataset_code)
+        tableData.append(item.selectedStock)
+        print("END")
+        dispatch_async(dispatch_get_main_queue()){
+            self.tableView.reloadData()
+        }
+    }
 }
 
 extension ViewController: UITableViewDataSource{
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stocks.count
+//        return stocks.count
+        return tableData.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
-        cell.textLabel?.text = stocks[indexPath.row]
+//        cell.textLabel?.text = stocks[indexPath.row]
+//        cell.textLabel?.text = self.tableData[indexPath.row]
+        cell.textLabel?.text = self.tableData[indexPath.row].dataset_code
         
         return cell
     }
@@ -68,7 +81,8 @@ extension ViewController: UITableViewDataSource{
     // http://stackoverflow.com/questions/32004557/swipe-able-table-view-cell-in-ios9-or-swift-guide-at-least
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
-            self.stocks.removeAtIndex(indexPath.row)
+//            self.stocks.removeAtIndex(indexPath.row)
+            self.tableData.removeAtIndex(indexPath.row)
             dispatch_async(dispatch_get_main_queue()){
                 self.tableView.reloadData()
             }
