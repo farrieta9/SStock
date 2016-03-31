@@ -47,12 +47,13 @@ class StockManager
                 else{
                     return
             }
-            // print(datasets[0]["name"]!)
             var data = [Stock]()
             for stocks in datasets{
                 let name = stocks["name"] as! String
+                let dataset_code = stocks["dataset_code"] as! String
                 let stock = Stock()
                 stock.name = name
+                stock.dataset_code = dataset_code
                 data.append(stock)
             }
             completion(stock: data)

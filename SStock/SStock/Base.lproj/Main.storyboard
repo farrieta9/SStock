@@ -64,7 +64,7 @@
                     <navigationItem key="navigationItem" title="Portfolio" id="xPH-cN-wCl">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="mvF-3i-HBv">
                             <connections>
-                                <segue destination="cWa-fv-tqB" kind="show" id="aRi-aR-uGZ"/>
+                                <segue destination="cWa-fv-tqB" kind="show" identifier="SearchVC" id="aRi-aR-uGZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

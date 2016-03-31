@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     
     var stocks = ["Google", "GE", "AMD"]
+    
+    var tableData = [Stock]()
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,6 +25,23 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+//    @IBAction func unwind(sender: UIStoryboardSegue){
+//        let sourceVC = sender.sourceViewController as! AddNewImageVC
+//        
+//        let realm = try! Realm()
+//        let photo = Photo()
+//        photo.title = sourceVC.textField_Title.text!
+//        photo.location = sourceVC.label_Location.text!
+//        photo.imageData = UIImageJPEGRepresentation(sourceVC.imageView_newImage.image!, 1.0)!
+//        
+//        try! realm.write(){
+//            realm.add(photo)
+//        }
+//        collectionView.reloadData()
+//    }
+    
+
 
 }
 
@@ -54,6 +73,7 @@ extension ViewController: UITableViewDataSource{
                 self.tableView.reloadData()
             }
         }
+        
         delete.backgroundColor = UIColor.lightGrayColor()
         
         let share = UITableViewRowAction(style: .Normal, title: "Share") { action, index in

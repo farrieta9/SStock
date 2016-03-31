@@ -24,7 +24,7 @@ class Stock{
     //    }
     
     var name = ""
-    var ticker = "" // General Electric ticker is GE
+    var dataset_code = "" //General Electric dataset_code is GE
     
     //    var stockURL: String{
     //        get{

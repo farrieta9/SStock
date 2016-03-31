@@ -6,7 +6,6 @@
 //  Copyright © 2016 CS3200. All rights reserved.
 //
 
-//import UIKit
 import UIKit
 
 class SearchVC: UIViewController{
@@ -42,12 +41,22 @@ extension SearchVC: UITableViewDataSource{
         
         return cell
     }
-    
 }
 
 extension SearchVC: UITableViewDelegate{
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print(indexPath.row) // Print selected row
+        print(self.tableData[indexPath.row].dataset_code)
         
+        // Dismiss screen upon clicking on a row
+        navigationController?.popViewControllerAnimated(true)
     }
 }
+
+
+
+
+
+
+
+
