@@ -47,6 +47,19 @@ class ViewController: UIViewController {
         print("Start")
         let item = sender.sourceViewController as! SearchVC
         print(item.selectedStock.dataset_code)
+        
+//        StockManager.search(searchBar.text!){
+//            (stocks) in dispatch_async(dispatch_get_main_queue()){
+//                self.tableData = stocks
+//                self.tableView.reloadData()
+//            }
+//        }
+        StockManager.getStockData(item.selectedStock.dataset_code){
+            (data) in dispatch_async(dispatch_get_main_queue()){
+                print(data)
+            }
+        }
+        
         tableData.append(item.selectedStock)
         print("END")
         dispatch_async(dispatch_get_main_queue()){
