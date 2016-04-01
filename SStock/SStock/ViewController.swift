@@ -7,18 +7,27 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
     
 //    var stocks = ["Google", "GE", "AMD"]
     
-    var tableData = [Stock]()
+//    var tableData = [Stock]()
+    var realmTableData: Results<RealmStock>!
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let realm = try! Realm()
+        realmTableData = realm.objects(RealmStock)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,10 +39,18 @@ class ViewController: UIViewController {
         // http://stackoverflow.com/questions/12509422/how-to-perform-unwind-segue-programmatically
         let item = sender.sourceViewController as! SearchVC
         
+        
         StockManager.getStockData(item.selectedStock.dataset_code){
             (data) in dispatch_async(dispatch_get_main_queue()){
 //                data.name = item.selectedStock.name
-                self.tableData.append(data)
+                
+                let realm = try! Realm()
+                
+                try! realm.write(){
+                    realm.add(data)
+                }
+                
+//                self.tableData.append(data)
                 self.tableView.reloadData()
             }
         }
@@ -43,7 +60,7 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource{
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return stocks.count
-        return tableData.count
+        return realmTableData.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -51,8 +68,8 @@ extension ViewController: UITableViewDataSource{
         
 //        cell.textLabel?.text = stocks[indexPath.row]
 //        cell.textLabel?.text = self.tableData[indexPath.row]
-        cell.textLabel?.text = self.tableData[indexPath.row].dataset_code
-        cell.detailTextLabel?.text = String(self.tableData[indexPath.row].close)
+        cell.textLabel?.text = self.realmTableData[indexPath.row].dataset_code
+        cell.detailTextLabel?.text = String(self.realmTableData[indexPath.row].close)
         
         return cell
     }
@@ -68,7 +85,7 @@ extension ViewController: UITableViewDataSource{
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
 //            self.stocks.removeAtIndex(indexPath.row)
-            self.tableData.removeAtIndex(indexPath.row)
+//            self.tableData.removeAtIndex(indexPath.row)
             dispatch_async(dispatch_get_main_queue()){
                 self.tableView.reloadData()
             }

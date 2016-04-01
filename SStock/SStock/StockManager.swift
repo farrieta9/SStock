@@ -86,7 +86,7 @@ class StockManager
         return oneDayAgo
     }
     
-    static func getStockData(text: String, completion: (stock: Stock) -> Void){
+    static func getStockData(text: String, completion: (stock: RealmStock) -> Void){
         print("Received: " + text)
         // https://www.quandl.com/api/v3/datasets/WIKI/AAPL/data.json?start_date=2016-03-29&api_key=L9rgCQ9xtMJ2vExshXgw Old usage
         
@@ -129,7 +129,7 @@ class StockManager
             let low = recentData[3] as! Double
             let close = recentData[4] as! Double
             
-            let stock = Stock()
+            let stock = RealmStock()
             stock.name = name
             stock.dataset_code = escapedQuery
             stock.date = date
