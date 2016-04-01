@@ -76,6 +76,17 @@ class StockManager
         return convertedDate
     }
     
+    static func getYesterdayDate() -> String{
+//        May need for later.
+//        Source http://stackoverflow.com/questions/26942123/nsdate-of-yesterday
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        let calendar = NSCalendar.currentCalendar()
+        let yesterday = calendar.dateByAddingUnit(.Day, value: -1, toDate: NSDate(), options: [])
+        let oneDayAgo = dateFormatter.stringFromDate(yesterday!)
+        return oneDayAgo
+    }
+    
     static func getStockData(text: String, completion: (stock: Stock) -> Void){
         print("Received: " + text)
         // https://www.quandl.com/api/v3/datasets/WIKI/AAPL/data.json?start_date=2016-03-29&api_key=L9rgCQ9xtMJ2vExshXgw Use this for getting data
@@ -106,28 +117,34 @@ class StockManager
 //            print(json["dataset_data"]!)
 //
             guard let dataset_data = json["dataset_data"] as? [String: AnyObject]
-//            let data = dataset_data["data"] as? [AnyObject]
+//            let data = dataset_data["data"] as? [String: AnyObject]
                 else{
                     return
             }
             
-            print(dataset_data["column_names"]!.count)
-//            print(dataset_data["data"]![0].count)
-//            let stock = Stock()
+//            print(dataset_data["column_names"]!.count)
+//            print(dataset_data["data"]!)
+//            print(dataset_data["data"]![0])
+//            print(dataset_data["data"]![0][0])
+//            print(dataset_data["data"]![0][1])
             
-            // To get more information about a stock look at the dataset_data
-//            let date = data[0] as! String
-//            print(data[0])
-//            let open = data[1] as! Double
-//            let high = data[2] as! Double
-//            let low = data[3] as! Double
-//            let close = data[4] as! Double
-////            stock.date = date
-//            stock.open = open
-//            stock.high = high
-//            stock.low = low
-//            stock.close = close
-//            completion(stock: stock)
+            var data = dataset_data["data"]!
+            data = data[0] // Using only the most recent data
+            let date = data[0] as! String
+            let open = data[1] as! Double
+            let high = data[2] as! Double
+            let low = data[3] as! Double
+            let close = data[4] as! Double
+            
+            let stock = Stock()
+            
+            stock.dataset_code = escapedQuery
+            stock.date = date
+            stock.open = open
+            stock.high = high
+            stock.low = low
+            stock.close = close
+            completion(stock: stock)
         }
         task.resume()
     }

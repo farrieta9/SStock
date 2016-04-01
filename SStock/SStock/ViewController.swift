@@ -56,7 +56,9 @@ class ViewController: UIViewController {
 //        }
         StockManager.getStockData(item.selectedStock.dataset_code){
             (data) in dispatch_async(dispatch_get_main_queue()){
-                print(data)
+                print(data.dataset_code)
+                print(data.name)
+                print(data.close)
             }
         }
         
