@@ -26,42 +26,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-//    @IBAction func unwind(sender: UIStoryboardSegue){
-//        let sourceVC = sender.sourceViewController as! AddNewImageVC
-//        
-//        let realm = try! Realm()
-//        let photo = Photo()
-//        photo.title = sourceVC.textField_Title.text!
-//        photo.location = sourceVC.label_Location.text!
-//        photo.imageData = UIImageJPEGRepresentation(sourceVC.imageView_newImage.image!, 1.0)!
-//        
-//        try! realm.write(){
-//            realm.add(photo)
-//        }
-//        collectionView.reloadData()
-//    }
-    
     @IBAction func unwindFromSearchVC(sender: UIStoryboardSegue) {
         // http://stackoverflow.com/questions/12509422/how-to-perform-unwind-segue-programmatically
-        // Second solution worked from 
-        print("Start")
         let item = sender.sourceViewController as! SearchVC
-        print(item.selectedStock.dataset_code)
         
-//        StockManager.search(searchBar.text!){
-//            (stocks) in dispatch_async(dispatch_get_main_queue()){
-//                self.tableData = stocks
-//                self.tableView.reloadData()
-//            }
-//        }
         StockManager.getStockData(item.selectedStock.dataset_code){
             (data) in dispatch_async(dispatch_get_main_queue()){
-                data.name = item.selectedStock.name
-                print(data.dataset_code)
-                print(data.name)
-                print(data.high)
-                print(data.low)
-                print(data.close)
+//                data.name = item.selectedStock.name
                 self.tableData.append(data)
                 self.tableView.reloadData()
             }

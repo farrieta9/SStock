@@ -77,7 +77,6 @@ class StockManager
     }
     
     static func getYesterdayDate() -> String{
-//        May need for later.
 //        Source http://stackoverflow.com/questions/26942123/nsdate-of-yesterday
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
@@ -89,19 +88,20 @@ class StockManager
     
     static func getStockData(text: String, completion: (stock: Stock) -> Void){
         print("Received: " + text)
-        // https://www.quandl.com/api/v3/datasets/WIKI/AAPL/data.json?start_date=2016-03-29&api_key=L9rgCQ9xtMJ2vExshXgw Use this for getting data
+        // https://www.quandl.com/api/v3/datasets/WIKI/AAPL/data.json?start_date=2016-03-29&api_key=L9rgCQ9xtMJ2vExshXgw Old usage
         
+        // https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json?start_date=2016-03-29&api_key=L9rgCQ9xtMJ2vExshXgw // This is the best becasue it includes the name of the company instead of having to rely on the previous query to get the name
         
         let api = "https://www.quandl.com/api/v3/datasets/WIKI/"
-        let currentDate = getCurrentDate()
-        
-        print(api + text + "/data.json?start_date=" + currentDate + apiKey)
+//        let currentDate = getCurrentDate()
+        let currentDate = getYesterdayDate()
         
         guard let escapedQuery = text.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()),
-            let url = NSURL(string: api + escapedQuery + "/data.json?start_date=" + currentDate + apiKey)
+            let url = NSURL(string: api + escapedQuery + ".json?start_date=" + currentDate + apiKey)
             else{
                 return
         }
+        print(url)
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url){
             (data, response, error) in
@@ -114,30 +114,23 @@ class StockManager
             } catch {
                 return
             }
-//            print(json["dataset_data"]!)
-//
-            guard let dataset_data = json["dataset_data"] as? [String: AnyObject]
-//            let data = dataset_data["data"] as? [String: AnyObject]
+            
+            guard let dataset = json["dataset"] as? [String: AnyObject],
+            let name = dataset["name"] as? String,
+            let data = dataset["data"],
+            let recentData = data[0]
                 else{
                     return
             }
             
-//            print(dataset_data["column_names"]!.count)
-//            print(dataset_data["data"]!)
-//            print(dataset_data["data"]![0])
-//            print(dataset_data["data"]![0][0])
-//            print(dataset_data["data"]![0][1])
-            
-            var data = dataset_data["data"]!
-            data = data[0] // Using only the most recent data
-            let date = data[0] as! String
-            let open = data[1] as! Double
-            let high = data[2] as! Double
-            let low = data[3] as! Double
-            let close = data[4] as! Double
+            let date = recentData[0] as! String
+            let open = recentData[1] as! Double
+            let high = recentData[2] as! Double
+            let low = recentData[3] as! Double
+            let close = recentData[4] as! Double
             
             let stock = Stock()
-            
+            stock.name = name
             stock.dataset_code = escapedQuery
             stock.date = date
             stock.open = open
