@@ -11,19 +11,42 @@ import RealmSwift
 
 class ViewController: UIViewController {
     
-//    var stocks = ["Google", "GE", "AMD"]
-    
-//    var tableData = [Stock]()
     var realmTableData: Results<RealmStock>!
+//    var refreshControl = UIRefreshControl()
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let realm = try! Realm()
         realmTableData = realm.objects(RealmStock)
+        
+//        // setup refresh control
+//        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+//        self.refreshControl.addTarget(self, action: Selector(refreshStockQuotes()), forControlEvents: UIControlEvents.ValueChanged)
+//        self.tableView.addSubview(refreshControl)
+        
+        
+        
+        
+//        refreshStockQuotes()
     }
+    
+//    func refreshStockQuotes(){
+////        let alert = UIAlertController(title: "Error", message: "Could not load stock quotes", preferredStyle: UIAlertControllerStyle.Alert)
+////        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+////        self.presentViewController(alert, animated: true, completion: nil)
+//        
+//        
+//        let updateString = "Last Updated at now"
+//        self.refreshControl.attributedTitle = NSAttributedString(string: updateString)
+//        if self.refreshControl.refreshing
+//        {
+//            self.refreshControl.endRefreshing()
+//        }
+//        
+//        self.tableView?.reloadData()
+//    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,8 +72,6 @@ class ViewController: UIViewController {
                 try! realm.write(){
                     realm.add(data)
                 }
-                
-//                self.tableData.append(data)
                 self.tableView.reloadData()
             }
         }
@@ -59,15 +80,11 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource{
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return stocks.count
         return realmTableData.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        
-//        cell.textLabel?.text = stocks[indexPath.row]
-//        cell.textLabel?.text = self.tableData[indexPath.row]
         cell.textLabel?.text = self.realmTableData[indexPath.row].dataset_code
         cell.detailTextLabel?.text = String(self.realmTableData[indexPath.row].close)
         
@@ -75,7 +92,7 @@ extension ViewController: UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        // This is left blank intentionally to enable cell editting
+        // This is left blank intentionally to enable cell editing
     }
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
@@ -84,8 +101,13 @@ extension ViewController: UITableViewDataSource{
     // http://stackoverflow.com/questions/32004557/swipe-able-table-view-cell-in-ios9-or-swift-guide-at-least
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
-//            self.stocks.removeAtIndex(indexPath.row)
-//            self.tableData.removeAtIndex(indexPath.row)
+            
+            let item = self.realmTableData[indexPath.row]
+            let realm = try! Realm()
+            try! realm.write{
+                realm.delete(item)
+            }
+            
             dispatch_async(dispatch_get_main_queue()){
                 self.tableView.reloadData()
             }
