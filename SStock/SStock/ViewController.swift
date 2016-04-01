@@ -56,16 +56,15 @@ class ViewController: UIViewController {
 //        }
         StockManager.getStockData(item.selectedStock.dataset_code){
             (data) in dispatch_async(dispatch_get_main_queue()){
+                data.name = item.selectedStock.name
                 print(data.dataset_code)
                 print(data.name)
+                print(data.high)
+                print(data.low)
                 print(data.close)
+                self.tableData.append(data)
+                self.tableView.reloadData()
             }
-        }
-        
-        tableData.append(item.selectedStock)
-        print("END")
-        dispatch_async(dispatch_get_main_queue()){
-            self.tableView.reloadData()
         }
     }
 }
@@ -82,6 +81,7 @@ extension ViewController: UITableViewDataSource{
 //        cell.textLabel?.text = stocks[indexPath.row]
 //        cell.textLabel?.text = self.tableData[indexPath.row]
         cell.textLabel?.text = self.tableData[indexPath.row].dataset_code
+        cell.detailTextLabel?.text = String(self.tableData[indexPath.row].close)
         
         return cell
     }

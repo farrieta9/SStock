@@ -19,16 +19,32 @@ class SearchVC: UIViewController{
 }
 
 extension SearchVC: UISearchBarDelegate{
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        print("SearchVC --- You entered: " + searchBar.text!)
-        searchBar.resignFirstResponder() // Make the keyboard go down
+//    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+//        print("SearchVC --- You entered: " + searchBar.text!)
+//        searchBar.resignFirstResponder() // Make the keyboard go down
+//        StockManager.search(searchBar.text!){
+//            (stocks) in dispatch_async(dispatch_get_main_queue()){
+//                self.tableData = stocks
+//                self.tableView.reloadData()
+//            }
+//        }
+//        view.endEditing(true) // Make the keyboard go down
+//    }
+    
+//    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+//        //print(searchText)
+//        spotifySearch(searchText)
+//    }
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+//        searchBar.resignFirstResponder() // Make the keyboard go down
         StockManager.search(searchBar.text!){
             (stocks) in dispatch_async(dispatch_get_main_queue()){
                 self.tableData = stocks
                 self.tableView.reloadData()
             }
         }
-        view.endEditing(true) // Make the keyboard go down
+//        view.endEditing(true) // Make the keyboard go down
     }
 }
 
