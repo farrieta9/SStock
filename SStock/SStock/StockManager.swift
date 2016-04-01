@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import RealmSwift
+
 
 class StockManager
 {
@@ -93,11 +95,10 @@ class StockManager
         // https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json?start_date=2016-03-29&api_key=L9rgCQ9xtMJ2vExshXgw // This is the best becasue it includes the name of the company instead of having to rely on the previous query to get the name
         
         let api = "https://www.quandl.com/api/v3/datasets/WIKI/"
-//        let currentDate = getCurrentDate()
-        let currentDate = getYesterdayDate()
+        let startDate = getYesterdayDate()
         
         guard let escapedQuery = text.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()),
-            let url = NSURL(string: api + escapedQuery + ".json?start_date=" + currentDate + apiKey)
+            let url = NSURL(string: api + escapedQuery + ".json?start_date=" + startDate + apiKey)
             else{
                 return
         }

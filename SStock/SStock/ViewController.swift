@@ -29,10 +29,30 @@ class ViewController: UIViewController {
     
     func refreshStocks(){
         print("refreshStocks() called")
-        for i in 1...100000{
-            print(i)
+                
+        for i in 0..<self.realmTableData.count{
+            StockManager.getStockData(realmTableData[i].dataset_code){
+                (data) in dispatch_async(dispatch_get_main_queue()){
+                    let realm = try! Realm()
+                    try! realm.write(){
+                        self.realmTableData[i].date = data.date
+                        self.realmTableData[i].open = data.open
+                        self.realmTableData[i].close = data.close
+                        self.realmTableData[i].high = data.high
+                        self.realmTableData[i].low = data.low
+                    }
+                }
+            }
         }
+        
+//        Using this to temporally change one value to test update
+//        let realm = try! Realm()
+//        try! realm.write(){
+//            realmTableData[3].close = 1.98
+//        }
+        
         refreshControl.endRefreshing()
+        tableView.reloadData()
     }
 
     
@@ -57,6 +77,7 @@ class ViewController: UIViewController {
                 try! realm.write(){
                     realm.add(data)
                 }
+                
                 self.tableView.reloadData()
             }
         }
@@ -75,37 +96,53 @@ extension ViewController: UITableViewDataSource{
         
         return cell
     }
+}
+
+extension ViewController: UITableViewDelegate{
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        // This is left blank intentionally to enable cell editing
-    }
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("Selected a cell")
     }
     
-    // http://stackoverflow.com/questions/32004557/swipe-able-table-view-cell-in-ios9-or-swift-guide-at-least
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
-            
+
             let item = self.realmTableData[indexPath.row]
             let realm = try! Realm()
             try! realm.write{
                 realm.delete(item)
             }
-            
+
             dispatch_async(dispatch_get_main_queue()){
                 self.tableView.reloadData()
             }
         }
-        
+
         delete.backgroundColor = UIColor.lightGrayColor()
-        
+
         let share = UITableViewRowAction(style: .Normal, title: "Share") { action, index in
             print("share button tapped")
         }
         share.backgroundColor = UIColor.blueColor()
         
         return [delete, share]
+
     }
-    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
