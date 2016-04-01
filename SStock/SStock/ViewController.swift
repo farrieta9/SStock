@@ -12,7 +12,9 @@ import RealmSwift
 class ViewController: UIViewController {
     
     var realmTableData: Results<RealmStock>!
-//    var refreshControl = UIRefreshControl()
+    
+    // https://www.youtube.com/watch?v=_SHVgdONv8g
+    let refreshControl: UIRefreshControl = UIRefreshControl()
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,32 +23,18 @@ class ViewController: UIViewController {
         let realm = try! Realm()
         realmTableData = realm.objects(RealmStock)
         
-//        // setup refresh control
-//        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-//        self.refreshControl.addTarget(self, action: Selector(refreshStockQuotes()), forControlEvents: UIControlEvents.ValueChanged)
-//        self.tableView.addSubview(refreshControl)
-        
-        
-        
-        
-//        refreshStockQuotes()
+        refreshControl.addTarget(self, action: #selector(ViewController.refreshStocks), forControlEvents: .ValueChanged)
+        tableView.addSubview(refreshControl)
     }
     
-//    func refreshStockQuotes(){
-////        let alert = UIAlertController(title: "Error", message: "Could not load stock quotes", preferredStyle: UIAlertControllerStyle.Alert)
-////        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
-////        self.presentViewController(alert, animated: true, completion: nil)
-//        
-//        
-//        let updateString = "Last Updated at now"
-//        self.refreshControl.attributedTitle = NSAttributedString(string: updateString)
-//        if self.refreshControl.refreshing
-//        {
-//            self.refreshControl.endRefreshing()
-//        }
-//        
-//        self.tableView?.reloadData()
-//    }
+    func refreshStocks(){
+        print("refreshStocks() called")
+        for i in 1...100000{
+            print(i)
+        }
+        refreshControl.endRefreshing()
+    }
+
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -62,11 +50,8 @@ class ViewController: UIViewController {
         // http://stackoverflow.com/questions/12509422/how-to-perform-unwind-segue-programmatically
         let item = sender.sourceViewController as! SearchVC
         
-        
         StockManager.getStockData(item.selectedStock.dataset_code){
             (data) in dispatch_async(dispatch_get_main_queue()){
-//                data.name = item.selectedStock.name
-                
                 let realm = try! Realm()
                 
                 try! realm.write(){
@@ -124,4 +109,3 @@ extension ViewController: UITableViewDataSource{
     }
     
 }
-
