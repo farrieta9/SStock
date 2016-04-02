@@ -118,9 +118,10 @@ class StockManager
             
             guard let dataset = json["dataset"] as? [String: AnyObject],
             let name = dataset["name"] as? String,
-            let data = dataset["data"],
+            let data = dataset["data"] as? [[AnyObject]!],
             let recentData = data[0]
                 else{
+                    print("Failed")
                     return
             }
             
@@ -129,7 +130,6 @@ class StockManager
             let high = recentData[2] as! Double
             let low = recentData[3] as! Double
             let close = recentData[4] as! Double
-            
             let stock = RealmStock()
             stock.name = name
             stock.dataset_code = escapedQuery
@@ -139,6 +139,7 @@ class StockManager
             stock.low = low
             stock.close = close
             completion(stock: stock)
+            
         }
         task.resume()
     }
