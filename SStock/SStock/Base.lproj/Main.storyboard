@@ -6,6 +6,80 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--UserVC-->
+        <scene sceneID="av6-bd-Azl">
+            <objects>
+                <viewController id="0MN-e0-aLJ" customClass="UserVC" customModule="SStock" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="McL-xP-PiX"/>
+                        <viewControllerLayoutGuide type="bottom" id="plk-Qv-eUr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="otB-Xk-1Fh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8U-3m-2Ba">
+                                <rect key="frame" x="120" y="74" width="360" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EHr-Op-fui">
+                                <rect key="frame" x="0.0" y="124" width="600" height="476"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ce-2f-QRz">
+                                <rect key="frame" x="20" y="79" width="95" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8i7-Cv-GZv">
+                                <rect key="frame" x="130" y="79" width="350" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="plk-Qv-eUr" firstAttribute="top" secondItem="8i7-Cv-GZv" secondAttribute="bottom" constant="498" id="6Pl-d1-Waf"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="4ce-2f-QRz" secondAttribute="leading" id="AD9-Hs-Bcj"/>
+                            <constraint firstItem="8i7-Cv-GZv" firstAttribute="leading" secondItem="4ce-2f-QRz" secondAttribute="trailing" constant="15" id="Clg-Jz-Tsg"/>
+                            <constraint firstItem="EHr-Op-fui" firstAttribute="leading" secondItem="otB-Xk-1Fh" secondAttribute="leadingMargin" constant="-20" id="DPK-Bt-5OW"/>
+                            <constraint firstItem="EHr-Op-fui" firstAttribute="top" secondItem="4ce-2f-QRz" secondAttribute="bottom" constant="15" id="Dat-mr-AQP"/>
+                            <constraint firstItem="EHr-Op-fui" firstAttribute="top" secondItem="8i7-Cv-GZv" secondAttribute="bottom" constant="15" id="IWg-7Y-XLn"/>
+                            <constraint firstItem="8i7-Cv-GZv" firstAttribute="top" secondItem="McL-xP-PiX" secondAttribute="bottom" constant="15" id="O6I-lS-N8X"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EHr-Op-fui" secondAttribute="trailing" constant="-20" id="WgX-to-nMv"/>
+                            <constraint firstItem="4ce-2f-QRz" firstAttribute="top" secondItem="McL-xP-PiX" secondAttribute="bottom" constant="15" id="fb1-hO-T4h"/>
+                            <constraint firstItem="plk-Qv-eUr" firstAttribute="top" secondItem="EHr-Op-fui" secondAttribute="bottom" id="l1c-QD-QCi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8i7-Cv-GZv" secondAttribute="trailing" constant="100" id="lYY-yN-nfF"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="c8U-3m-2Ba"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="6Pl-d1-Waf"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZAG-by-Zwc">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="8bs-2V-VPY">
+                            <connections>
+                                <action selector="onCancel:" destination="0MN-e0-aLJ" id="LFn-ld-y9L"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="fwZ-m7-cMx">
+                            <connections>
+                                <action selector="onSave:" destination="0MN-e0-aLJ" id="s6E-9t-I0U"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uaC-QF-Jm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="267" y="-359"/>
+        </scene>
         <!--Portfolio-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -62,6 +136,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Portfolio" id="xPH-cN-wCl">
+                        <barButtonItem key="leftBarButtonItem" image="gender_neutral_user" id="2Wo-JK-Tz8">
+                            <connections>
+                                <segue destination="A9l-bd-SpZ" kind="presentation" id="sjX-ph-Qes"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="mvF-3i-HBv">
                             <connections>
                                 <segue destination="cWa-fv-tqB" kind="show" identifier="SearchVC" id="aRi-aR-uGZ"/>
@@ -150,7 +229,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8td-c2-7EU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lJU-sB-JHc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="443" y="-1052"/>
+            <point key="canvasLocation" x="267" y="-1054"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lN5-ih-6sL">
@@ -170,5 +249,26 @@
             </objects>
             <point key="canvasLocation" x="-1081" y="-1054"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CSZ-3d-8I5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A9l-bd-SpZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HVw-AJ-ymI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0MN-e0-aLJ" kind="relationship" relationship="rootViewController" id="ZgS-FY-Xj0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6HN-W3-9gD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-401" y="-359"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="gender_neutral_user" width="32" height="32"/>
+    </resources>
 </document>

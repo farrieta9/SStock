@@ -12,6 +12,7 @@
 		8C0DCADE1CA5959100B140BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C0DCADC1CA5959100B140BE /* Main.storyboard */; };
 		8C0DCAE01CA5959100B140BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C0DCADF1CA5959100B140BE /* Assets.xcassets */; };
 		8C0DCAE31CA5959100B140BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C0DCAE11CA5959100B140BE /* LaunchScreen.storyboard */; };
+		8C86DF3E1CB19DD100A8093C /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86DF3D1CB19DD100A8093C /* UserVC.swift */; };
 		8C9A2AAF1CAEF7B20048E238 /* RealmStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9A2AAE1CAEF7B20048E238 /* RealmStock.swift */; };
 		8C9E52D31CA5B4FD008769C4 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9E52D21CA5B4FD008769C4 /* SearchVC.swift */; };
 		8CEEB7341CAA59AC0069799C /* StockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEEB7331CAA59AC0069799C /* StockManager.swift */; };
@@ -29,6 +30,7 @@
 		8C0DCADF1CA5959100B140BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C0DCAE21CA5959100B140BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C0DCAE41CA5959100B140BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C86DF3D1CB19DD100A8093C /* UserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVC.swift; sourceTree = "<group>"; };
 		8C9A2AAE1CAEF7B20048E238 /* RealmStock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmStock.swift; sourceTree = "<group>"; };
 		8C9E52D21CA5B4FD008769C4 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		8CEEB7331CAA59AC0069799C /* StockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockManager.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				8C0DCADA1CA5959100B140BE /* ViewController.swift */,
 				8CEEB7331CAA59AC0069799C /* StockManager.swift */,
 				8C0DCADC1CA5959100B140BE /* Main.storyboard */,
+				8C86DF3D1CB19DD100A8093C /* UserVC.swift */,
 				8C9E52D21CA5B4FD008769C4 /* SearchVC.swift */,
 				8C0DCADF1CA5959100B140BE /* Assets.xcassets */,
 				8C0DCAE11CA5959100B140BE /* LaunchScreen.storyboard */,
@@ -223,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C86DF3E1CB19DD100A8093C /* UserVC.swift in Sources */,
 				8C9A2AAF1CAEF7B20048E238 /* RealmStock.swift in Sources */,
 				8C9E52D31CA5B4FD008769C4 /* SearchVC.swift in Sources */,
 				8CEEB7341CAA59AC0069799C /* StockManager.swift in Sources */,

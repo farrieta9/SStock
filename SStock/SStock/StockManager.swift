@@ -78,12 +78,12 @@ class StockManager
         return convertedDate
     }
     
-    static func getYesterdayDate() -> String{
+    static func getStartDate() -> String{
 //        Source http://stackoverflow.com/questions/26942123/nsdate-of-yesterday
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
         let calendar = NSCalendar.currentCalendar()
-        let yesterday = calendar.dateByAddingUnit(.Day, value: -1, toDate: NSDate(), options: [])
+        let yesterday = calendar.dateByAddingUnit(.Day, value: -4, toDate: NSDate(), options: []) // value -1 is yesterday, -2 is two days ago and so on.
         let oneDayAgo = dateFormatter.stringFromDate(yesterday!)
         return oneDayAgo
     }
@@ -95,7 +95,7 @@ class StockManager
         // https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json?start_date=2016-03-29&api_key=L9rgCQ9xtMJ2vExshXgw // This is the best becasue it includes the name of the company instead of having to rely on the previous query to get the name
         
         let api = "https://www.quandl.com/api/v3/datasets/WIKI/"
-        let startDate = getYesterdayDate()
+        let startDate = getStartDate()
         
         guard let escapedQuery = text.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()),
             let url = NSURL(string: api + escapedQuery + ".json?start_date=" + startDate + apiKey)
@@ -121,7 +121,6 @@ class StockManager
             let data = dataset["data"] as? [[AnyObject]!],
             let recentData = data[0]
                 else{
-                    print("Failed")
                     return
             }
             
@@ -139,7 +138,6 @@ class StockManager
             stock.low = low
             stock.close = close
             completion(stock: stock)
-            
         }
         task.resume()
     }
