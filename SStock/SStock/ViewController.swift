@@ -122,12 +122,32 @@ extension ViewController: UITableViewDelegate{
 
         let share = UITableViewRowAction(style: .Normal, title: "Share") { action, index in
             print("share button tapped")
+            
+            let alert = UIAlertController(title: "Search User", message: "Enter a text", preferredStyle: .Alert)
+            
+            alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+                textField.text = "" // Default text
+            })
+
+            let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+                print("cancelAction() called")
+            }
+            let sendAction: UIAlertAction = UIAlertAction(title: "Send", style: .Default, handler: { action -> Void in
+                let textField = alert.textFields![0] as UITextField
+                print("You enter: \(textField.text!)")
+            })
+            
+            alert.addAction(cancelAction)
+            alert.addAction(sendAction)
+            
+            alert.view.setNeedsLayout() // http://stackoverflow.com/questions/33241052/xcode-iphone-6-plus-and-6s-plus-shows-warning-when-display-uialertviewcontroller
+            self.presentViewController(alert, animated: true, completion: nil)
         }
         share.backgroundColor = UIColor.blueColor()
         
         return [delete, share]
-
     }
+    
 }
 
 
