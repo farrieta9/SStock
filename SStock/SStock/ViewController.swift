@@ -8,10 +8,12 @@
 
 import UIKit
 import RealmSwift
+import Firebase
 
 class ViewController: UIViewController {
     
     var realmTableData: Results<RealmStock>!
+    var realmUserData: Results<RealmUser>!
     
     // https://www.youtube.com/watch?v=_SHVgdONv8g
     let refreshControl: UIRefreshControl = UIRefreshControl()
@@ -135,17 +137,41 @@ extension ViewController: UITableViewDelegate{
             let sendAction: UIAlertAction = UIAlertAction(title: "Send", style: .Default, handler: { action -> Void in
                 let textField = alert.textFields![0] as UITextField
                 print("You enter: \(textField.text!)")
+                self.sendStock(textField.text!, stock: self.realmTableData[indexPath.row].dataset_code)
             })
             
             alert.addAction(cancelAction)
             alert.addAction(sendAction)
             
-            alert.view.setNeedsLayout() // http://stackoverflow.com/questions/33241052/xcode-iphone-6-plus-and-6s-plus-shows-warning-when-display-uialertviewcontroller
+            // http://stackoverflow.com/questions/33241052/xcode-iphone-6-plus-and-6s-plus-shows-warning-when-display-uialertviewcontroller
+            alert.view.setNeedsLayout()
             self.presentViewController(alert, animated: true, completion: nil)
         }
         share.backgroundColor = UIColor.blueColor()
         
         return [delete, share]
+    }
+    
+    func sendStock(recipient: String, stock: String) -> Bool{
+        if recipient.isEmpty{
+            return false
+        }
+        
+        let realm = try! Realm()
+        realmUserData = realm.objects(RealmUser)
+        if realmUserData.count > 0{
+            let name = realmUserData[0].userName
+            let rootRef = Firebase(url: "https://sstock.firebaseio.com/")
+            let data = ["sender": name, "recipient": recipient, "stock": stock]
+            let ref = rootRef.childByAutoId()
+            ref.setValue(data)
+        } else {
+            print("You have set up a user name")
+            return false
+        }
+        
+        
+        return true
     }
     
 }
