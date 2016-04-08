@@ -137,7 +137,9 @@ extension ViewController: UITableViewDelegate{
             let sendAction: UIAlertAction = UIAlertAction(title: "Send", style: .Default, handler: { action -> Void in
                 let textField = alert.textFields![0] as UITextField
                 print("You enter: \(textField.text!)")
-                self.sendStock(textField.text!, stock: self.realmTableData[indexPath.row].dataset_code)
+                if !self.sendStock(textField.text!, stock: self.realmTableData[indexPath.row].dataset_code){
+                    alert.message = "You need to setup a user name"
+                }
             })
             
             alert.addAction(cancelAction)
@@ -166,7 +168,7 @@ extension ViewController: UITableViewDelegate{
             let ref = rootRef.childByAutoId()
             ref.setValue(data)
         } else {
-            print("You have set up a user name")
+            print("You have to set up a user name")
             return false
         }
         
@@ -175,8 +177,6 @@ extension ViewController: UITableViewDelegate{
     }
     
 }
-
-
 
 
 
