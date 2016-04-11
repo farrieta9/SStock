@@ -139,6 +139,15 @@ extension ViewController: UITableViewDelegate{
                 print("You enter: \(textField.text!)")
                 if !self.sendStock(textField.text!, stock: self.realmTableData[indexPath.row].dataset_code){
                     alert.message = "You need to setup a user name"
+                    
+                    // create the alert
+                    let alert = UIAlertController(title: "Error bud", message: "You need to setup a user name first.", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    // add an action (button)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    
+                    // show the alert
+                    self.presentViewController(alert, animated: true, completion: nil)
                 }
             })
             

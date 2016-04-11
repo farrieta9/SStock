@@ -42,12 +42,12 @@ class UserVC: UIViewController{
                     else{
                         return
                 }
-                if sender == self.title{
+                if sender == self.title {
                     sender = "You recommended: " + stock + " to " + recipient
                     recipient = ""
                     self.tableData.insert((recipient, sender, stock), atIndex: 0)
                     
-                } else {
+                } else  if recipient == self.title {
                     sender = sender + " recommends: " + stock
                     recipient = ""
                     self.tableData.insert((sender, recipient, stock), atIndex: 0)
