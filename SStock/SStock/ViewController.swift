@@ -85,14 +85,9 @@ class ViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "StockStatsVC"{
-//            print("clicked stockstatsVC")
-            
             if let selectedRow = tableView.indexPathForSelectedRow?.row{
-//                print(selectedRow)
                 
                 var stats = [String]()
-                
-                
                 let vc = segue.destinationViewController as! StockStatsVC
 
                 stats.append("Open")
@@ -101,6 +96,7 @@ class ViewController: UIViewController {
                 stats.append(String(self.realmTableData[selectedRow].close))
                 vc.stats.append(stats)
                 
+                // Clear stats to indicate a new row
                 stats = []
                 stats.append("High")
                 stats.append(String(self.realmTableData[selectedRow].high))

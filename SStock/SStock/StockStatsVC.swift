@@ -40,7 +40,6 @@ extension StockStatsVC: UITableViewDataSource{
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! StockStatsCustomCell
         
-        print(indexPath.section)
         if indexPath.section == 0{
             cell.labelLeftTitle.text = stats[indexPath.row][0]
             cell.labelLeftStat.text = stats[indexPath.row][1]
