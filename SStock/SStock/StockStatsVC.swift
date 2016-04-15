@@ -1,0 +1,29 @@
+//
+//  StockStatsVC.swift
+//  SStock
+//
+//  Created by Francisco Arrieta on 4/15/16.
+//  Copyright © 2016 CS3200. All rights reserved.
+//
+
+import UIKit
+import RealmSwift
+
+class StockStatsVC: UIViewController{
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+}
+
+extension StockStatsVC: UITableViewDataSource{
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! StockStatsCustomCell
+        
+        return cell
+    }
+    
+}

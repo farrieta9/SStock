@@ -9,20 +9,6 @@
 import Foundation
 
 class Stock{
-    //
-    //    var id = ""
-    //    var owner = ""
-    //    var secret = ""
-    //    var server = ""
-    //    var farm = ""
-    //    var title = ""
-    //
-    //    var photoURL: String{
-    //        get{
-    //            return "https://farm\(farm).staticflickr.com/\(server)/\(id)_\(secret).jpg"
-    //        }
-    //    }
-    
     var name = ""
     var dataset_code = "" //General Electric dataset_code is GE
     var date: String = ""

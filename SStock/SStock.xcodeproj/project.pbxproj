@@ -14,6 +14,8 @@
 		8C0DCAE31CA5959100B140BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C0DCAE11CA5959100B140BE /* LaunchScreen.storyboard */; };
 		8C86DF3E1CB19DD100A8093C /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86DF3D1CB19DD100A8093C /* UserVC.swift */; };
 		8C9A2AAF1CAEF7B20048E238 /* RealmStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9A2AAE1CAEF7B20048E238 /* RealmStock.swift */; };
+		8C9B0DD71CC136200076F47B /* StockStatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B0DD61CC136200076F47B /* StockStatsVC.swift */; };
+		8C9B0DDB1CC1380B0076F47B /* StockStatsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B0DDA1CC1380B0076F47B /* StockStatsCustomCell.swift */; };
 		8C9E52D31CA5B4FD008769C4 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9E52D21CA5B4FD008769C4 /* SearchVC.swift */; };
 		8CA94C171CB82E34006DFE5B /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA94C161CB82E34006DFE5B /* RealmUser.swift */; };
 		8CEEB7341CAA59AC0069799C /* StockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEEB7331CAA59AC0069799C /* StockManager.swift */; };
@@ -33,6 +35,8 @@
 		8C0DCAE41CA5959100B140BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C86DF3D1CB19DD100A8093C /* UserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVC.swift; sourceTree = "<group>"; };
 		8C9A2AAE1CAEF7B20048E238 /* RealmStock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmStock.swift; sourceTree = "<group>"; };
+		8C9B0DD61CC136200076F47B /* StockStatsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockStatsVC.swift; sourceTree = "<group>"; };
+		8C9B0DDA1CC1380B0076F47B /* StockStatsCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockStatsCustomCell.swift; sourceTree = "<group>"; };
 		8C9E52D21CA5B4FD008769C4 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		8CA94C161CB82E34006DFE5B /* RealmUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		8CEEB7331CAA59AC0069799C /* StockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockManager.swift; sourceTree = "<group>"; };
@@ -83,9 +87,11 @@
 			children = (
 				8C0DCAD81CA5959100B140BE /* AppDelegate.swift */,
 				8C0DCADA1CA5959100B140BE /* ViewController.swift */,
+				8C9B0DDA1CC1380B0076F47B /* StockStatsCustomCell.swift */,
 				8CA94C161CB82E34006DFE5B /* RealmUser.swift */,
 				8CEEB7331CAA59AC0069799C /* StockManager.swift */,
 				8C0DCADC1CA5959100B140BE /* Main.storyboard */,
+				8C9B0DD61CC136200076F47B /* StockStatsVC.swift */,
 				8C86DF3D1CB19DD100A8093C /* UserVC.swift */,
 				8C9E52D21CA5B4FD008769C4 /* SearchVC.swift */,
 				8C0DCADF1CA5959100B140BE /* Assets.xcassets */,
@@ -232,7 +238,9 @@
 				8C86DF3E1CB19DD100A8093C /* UserVC.swift in Sources */,
 				8C9A2AAF1CAEF7B20048E238 /* RealmStock.swift in Sources */,
 				8C9E52D31CA5B4FD008769C4 /* SearchVC.swift in Sources */,
+				8C9B0DDB1CC1380B0076F47B /* StockStatsCustomCell.swift in Sources */,
 				8CEEB7341CAA59AC0069799C /* StockManager.swift in Sources */,
+				8C9B0DD71CC136200076F47B /* StockStatsVC.swift in Sources */,
 				8CA94C171CB82E34006DFE5B /* RealmUser.swift in Sources */,
 				8CEEB7381CAA5A410069799C /* Stock.swift in Sources */,
 				8C0DCADB1CA5959100B140BE /* ViewController.swift in Sources */,
