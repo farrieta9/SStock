@@ -10,6 +10,10 @@ import UIKit
 
 class StockStatsCustomCell: UITableViewCell {
 
+    @IBOutlet weak var labelLeftTitle: UILabel!
+    @IBOutlet weak var labelLeftStat: UILabel!
+    @IBOutlet weak var labelRightTitle: UILabel!
+    @IBOutlet weak var labelRightStat: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -30,8 +30,6 @@ class ViewController: UIViewController {
     }
     
     func refreshStocks(){
-        print("refreshStocks() called")
-                
         for i in 0..<self.realmTableData.count{
             StockManager.getStockData(realmTableData[i].dataset_code){
                 (data) in dispatch_async(dispatch_get_main_queue()){
@@ -81,6 +79,28 @@ class ViewController: UIViewController {
                 }
                 
                 self.tableView.reloadData()
+            }
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "StockStatsVC"{
+            print("clicked stockstatsVC")
+            
+            if let selectedRow = tableView.indexPathForSelectedRow?.row{
+                print(selectedRow)
+                
+                
+                let vc = segue.destinationViewController as! StockStatsVC
+                vc.leftTitle = "Open "
+                vc.leftStat =  String(self.realmTableData[selectedRow].open)
+                vc.rightTitle = "Close"
+                vc.rightStat =  String(self.realmTableData[selectedRow].close)
+                
+//                self.realmTableData[indexPath.row].dataset_code
+                
+                
+                
             }
         }
     }
