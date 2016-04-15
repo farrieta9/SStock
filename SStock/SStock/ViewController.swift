@@ -85,22 +85,30 @@ class ViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "StockStatsVC"{
-            print("clicked stockstatsVC")
+//            print("clicked stockstatsVC")
             
             if let selectedRow = tableView.indexPathForSelectedRow?.row{
-                print(selectedRow)
+//                print(selectedRow)
+                
+                var stats = [String]()
                 
                 
                 let vc = segue.destinationViewController as! StockStatsVC
-                vc.leftTitle = "Open "
-                vc.leftStat =  String(self.realmTableData[selectedRow].open)
-                vc.rightTitle = "Close"
-                vc.rightStat =  String(self.realmTableData[selectedRow].close)
+
+                stats.append("Open")
+                stats.append(String(self.realmTableData[selectedRow].open))
+                stats.append("Close")
+                stats.append(String(self.realmTableData[selectedRow].close))
+                vc.stats.append(stats)
                 
-//                self.realmTableData[indexPath.row].dataset_code
+                stats = []
+                stats.append("High")
+                stats.append(String(self.realmTableData[selectedRow].high))
+                stats.append("Low")
+                stats.append(String(self.realmTableData[selectedRow].low))
+                vc.stats.append(stats)
                 
-                
-                
+                vc.header = String(self.realmTableData[selectedRow].dataset_code)
             }
         }
     }

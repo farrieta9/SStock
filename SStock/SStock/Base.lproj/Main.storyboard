@@ -117,7 +117,7 @@
         <!--Portfolio-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SStock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="SStock" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -131,7 +131,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="0zh-Ej-kns" detailTextLabel="P3q-ey-ZfG" style="IBUITableViewCellStyleValue1" id="j6b-qx-JA0">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j6b-qx-JA0" id="jV8-NA-3Nk">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -271,7 +271,7 @@
         <!--Stock StatsVC-->
         <scene sceneID="f9G-3d-ZWd">
             <objects>
-                <viewController id="Wph-Xc-NrE" customClass="StockStatsVC" customModule="SStock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Wph-Xc-NrE" customClass="StockStatsVC" customModule="SStock" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gWG-aL-L56"/>
                         <viewControllerLayoutGuide type="bottom" id="mVA-qs-875"/>
@@ -285,7 +285,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="50" id="Aej-Di-ejo" customClass="StockStatsCustomCell" customModule="SStock" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="50"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aej-Di-ejo" id="XWd-c2-mfX">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
@@ -338,6 +338,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Wph-Xc-NrE" id="Lmd-ai-5Va"/>
+                                    <outlet property="delegate" destination="Wph-Xc-NrE" id="uOI-Kd-obT"/>
                                 </connections>
                             </tableView>
                         </subviews>
