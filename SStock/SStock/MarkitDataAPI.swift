@@ -80,9 +80,7 @@ class MarkitDataAPI{
             } catch{
                 return
             }
-//            print(json)
-//            print(json["Name"])
-//            print(json.count)
+            
             let status = json["Status"] as! String
             if status != "SUCCESS"{
                 return

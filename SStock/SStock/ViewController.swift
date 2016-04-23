@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     
     func refreshStocks(){
         for i in 0..<self.realmTableData.count{
-            StockManager.getStockData(realmTableData[i].dataset_code){
+            StockManager.getStockData(realmTableData[i].symbol){
                 (data) in dispatch_async(dispatch_get_main_queue()){
                     let realm = try! Realm()
                     try! realm.write(){
@@ -79,18 +79,6 @@ class ViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
-        
-//        StockManager.getStockData(item.selectedStock.dataset_code){
-//            (data) in dispatch_async(dispatch_get_main_queue()){
-//                let realm = try! Realm()
-//                
-//                try! realm.write(){
-//                    realm.add(data)
-//                }
-//                
-//                self.tableView.reloadData()
-//            }
-//        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -178,7 +166,7 @@ extension ViewController: UITableViewDelegate{
             let sendAction: UIAlertAction = UIAlertAction(title: "Send", style: .Default, handler: { action -> Void in
                 let textField = alert.textFields![0] as UITextField
                 print("You enter: \(textField.text!)")
-                if !self.sendStock(textField.text!, stock: self.realmTableData[indexPath.row].dataset_code){
+                if !self.sendStock(textField.text!, stock: self.realmTableData[indexPath.row].symbol){
                     alert.message = "You need to setup a user name"
                     
                     // create the alert

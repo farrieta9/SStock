@@ -59,10 +59,10 @@ class StockManager
             var data = [Stock]()
             for stocks in datasets{
                 let name = stocks["name"] as! String
-                let dataset_code = stocks["dataset_code"] as! String
+                let symbol = stocks["dataset_code"] as! String
                 let stock = Stock()
                 stock.name = name
-                stock.dataset_code = dataset_code
+                stock.symbol = symbol
                 data.append(stock)
             }
             completion(stock: data)
@@ -131,7 +131,7 @@ class StockManager
             let close = recentData[4] as! Double
             let stock = RealmStock()
             stock.name = name
-            stock.dataset_code = escapedQuery
+            stock.symbol = escapedQuery
             stock.date = date
             stock.open = open
             stock.high = high
