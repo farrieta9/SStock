@@ -69,18 +69,28 @@ class ViewController: UIViewController {
     @IBAction func unwindFromSearchVC(sender: UIStoryboardSegue) {
         // http://stackoverflow.com/questions/12509422/how-to-perform-unwind-segue-programmatically
         let item = sender.sourceViewController as! SearchVC
-        
-        StockManager.getStockData(item.selectedStock.dataset_code){
+        MarkitDataAPI.getQuote(item.selectedStock.symbol){
             (data) in dispatch_async(dispatch_get_main_queue()){
                 let realm = try! Realm()
                 
                 try! realm.write(){
                     realm.add(data)
                 }
-                
                 self.tableView.reloadData()
             }
         }
+        
+//        StockManager.getStockData(item.selectedStock.dataset_code){
+//            (data) in dispatch_async(dispatch_get_main_queue()){
+//                let realm = try! Realm()
+//                
+//                try! realm.write(){
+//                    realm.add(data)
+//                }
+//                
+//                self.tableView.reloadData()
+//            }
+//        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -104,7 +114,14 @@ class ViewController: UIViewController {
                 stats.append(String(self.realmTableData[selectedRow].low))
                 vc.stats.append(stats)
                 
-                vc.header = String(self.realmTableData[selectedRow].dataset_code)
+                vc.header = String(self.realmTableData[selectedRow].symbol)
+                
+                stats = []
+                stats.append("Change")
+                stats.append(String(self.realmTableData[selectedRow].change))
+                stats.append("%Change")
+                stats.append(String(self.realmTableData[selectedRow].changePercent))
+                vc.stats.append(stats)
             }
         }
     }
@@ -117,7 +134,7 @@ extension ViewController: UITableViewDataSource{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        cell.textLabel?.text = self.realmTableData[indexPath.row].dataset_code
+        cell.textLabel?.text = self.realmTableData[indexPath.row].symbol
         cell.detailTextLabel?.text = String(self.realmTableData[indexPath.row].close)
         
         return cell

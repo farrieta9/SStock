@@ -10,12 +10,15 @@ import Foundation
 import RealmSwift
 
 class RealmStock: Object{
+    // See http://dev.markitondemand.com/MODApis/#doc_quote
+    dynamic var change = 0.0
+    dynamic var changePercent = 0.0
+    dynamic var close: Double = 0.0 // can also be the lastprice
     dynamic var name = ""
-    dynamic var dataset_code = "" //General Electric dataset_code is GE
-    dynamic var date: String = ""
-    dynamic var open: Double = 0.0
+    dynamic var dataset_code = "" //General Electric dataset_code is GE Deprecated
+    dynamic var date: String = "" // Deprecated
     dynamic var high: Double = 0.0
     dynamic var low: Double = 0.0
-    dynamic var close: Double = 0.0
-    
+    dynamic var open: Double = 0.0
+    dynamic var symbol = "" // General Electric symbol is GE
 }
