@@ -33,15 +33,12 @@ extension SearchVC: UISearchBarDelegate{
     
 //    Search as you type
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
-        print("***")
         MarkitDataAPI.search(searchText){
             (stocks) in dispatch_async(dispatch_get_main_queue()){
                 self.tableData = stocks
                 self.tableView.reloadData()
             }
         }
-        print("***")
 //        searchBar.resignFirstResponder() // Make the keyboard go down
 //        StockManager.search(searchBar.text!){
 //            (stocks) in dispatch_async(dispatch_get_main_queue()){
