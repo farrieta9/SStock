@@ -15,5 +15,6 @@ class Stock{
     var open: Double = 0.0
     var high: Double = 0.0
     var low: Double = 0.0
-    var close: Double = 0.0    
+    var close: Double = 0.0
+    var symbol = "" // General Electric symbol is GE
 }

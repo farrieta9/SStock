@@ -17,6 +17,7 @@
 		8C9B0DD71CC136200076F47B /* StockStatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B0DD61CC136200076F47B /* StockStatsVC.swift */; };
 		8C9B0DDB1CC1380B0076F47B /* StockStatsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B0DDA1CC1380B0076F47B /* StockStatsCustomCell.swift */; };
 		8C9E52D31CA5B4FD008769C4 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9E52D21CA5B4FD008769C4 /* SearchVC.swift */; };
+		8CA1DE161CCAF26D007E6D62 /* MarkitDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1DE151CCAF26D007E6D62 /* MarkitDataAPI.swift */; };
 		8CA94C171CB82E34006DFE5B /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA94C161CB82E34006DFE5B /* RealmUser.swift */; };
 		8CEEB7341CAA59AC0069799C /* StockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEEB7331CAA59AC0069799C /* StockManager.swift */; };
 		8CEEB7381CAA5A410069799C /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEEB7371CAA5A410069799C /* Stock.swift */; };
@@ -38,6 +39,7 @@
 		8C9B0DD61CC136200076F47B /* StockStatsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockStatsVC.swift; sourceTree = "<group>"; };
 		8C9B0DDA1CC1380B0076F47B /* StockStatsCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockStatsCustomCell.swift; sourceTree = "<group>"; };
 		8C9E52D21CA5B4FD008769C4 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		8CA1DE151CCAF26D007E6D62 /* MarkitDataAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkitDataAPI.swift; sourceTree = "<group>"; };
 		8CA94C161CB82E34006DFE5B /* RealmUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		8CEEB7331CAA59AC0069799C /* StockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockManager.swift; sourceTree = "<group>"; };
 		8CEEB7371CAA5A410069799C /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				8C0DCAE41CA5959100B140BE /* Info.plist */,
 				8CEEB7371CAA5A410069799C /* Stock.swift */,
 				8C9A2AAE1CAEF7B20048E238 /* RealmStock.swift */,
+				8CA1DE151CCAF26D007E6D62 /* MarkitDataAPI.swift */,
 			);
 			path = SStock;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				8C9B0DD71CC136200076F47B /* StockStatsVC.swift in Sources */,
 				8CA94C171CB82E34006DFE5B /* RealmUser.swift in Sources */,
 				8CEEB7381CAA5A410069799C /* Stock.swift in Sources */,
+				8CA1DE161CCAF26D007E6D62 /* MarkitDataAPI.swift in Sources */,
 				8C0DCADB1CA5959100B140BE /* ViewController.swift in Sources */,
 				8C0DCAD91CA5959100B140BE /* AppDelegate.swift in Sources */,
 			);
