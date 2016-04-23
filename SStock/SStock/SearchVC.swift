@@ -60,7 +60,8 @@ extension SearchVC: UITableViewDataSource{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        cell.textLabel?.text = tableData[indexPath.row].name
+        cell.textLabel?.text = tableData[indexPath.row].symbol
+        cell.detailTextLabel?.text = tableData[indexPath.row].name
         
         return cell
     }
