@@ -1,8 +1,9 @@
 {
   "images" : [
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "rsz_screen_shot_2016-04-24_at_50724_pm.png",
       "scale" : "2x"
     },
     {
