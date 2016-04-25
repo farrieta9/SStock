@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     var realmTableData: Results<RealmStock>!
     var realmUserData: Results<RealmUser>!
+    var stockInfoIndex = 1
     
     // https://www.youtube.com/watch?v=_SHVgdONv8g
     let refreshControl: UIRefreshControl = UIRefreshControl()
@@ -31,7 +32,7 @@ class ViewController: UIViewController {
     
     func refreshStocks(){
         for i in 0..<self.realmTableData.count{
-            StockManager.getStockData(realmTableData[i].symbol){
+            MarkitDataAPI.getQuote(realmTableData[i].symbol){
                 (data) in dispatch_async(dispatch_get_main_queue()){
                     let realm = try! Realm()
                     try! realm.write(){
@@ -40,6 +41,8 @@ class ViewController: UIViewController {
                         self.realmTableData[i].close = data.close
                         self.realmTableData[i].high = data.high
                         self.realmTableData[i].low = data.low
+                        self.realmTableData[i].change = data.change
+                        self.realmTableData[i].changePercent = data.changePercent
                     }
                 }
             }
@@ -50,6 +53,7 @@ class ViewController: UIViewController {
 //        try! realm.write(){
 //            realmTableData[3].close = 1.98
 //        }
+        
         
         refreshControl.endRefreshing()
         tableView.reloadData()
@@ -71,12 +75,14 @@ class ViewController: UIViewController {
         let item = sender.sourceViewController as! SearchVC
         MarkitDataAPI.getQuote(item.selectedStock.symbol){
             (data) in dispatch_async(dispatch_get_main_queue()){
-                let realm = try! Realm()
-                
-                try! realm.write(){
-                    realm.add(data)
+                if self.isStockInPortfolio(data.symbol) == false{
+                    let realm = try! Realm()
+                    
+                    try! realm.write(){
+                        realm.add(data)
+                    }
+                    self.tableView.reloadData()
                 }
-                self.tableView.reloadData()
             }
         }
     }
@@ -113,6 +119,58 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    func isStockInPortfolio(symbol: String) -> Bool{
+        for i in 0..<realmTableData.count{
+            if symbol == realmTableData[i].symbol{
+                return true
+            }
+        }
+        return false
+    }
+    @IBAction func buttonStockPriceClicked(sender: UIButton) {
+        
+        print(sender.titleLabel?.text)
+        print(sender.tag)
+//        sender.setTitle(String(self.realmTableData[sender.tag].changePercent), forState: UIControlState.Normal)
+        var buttonTitle: String!
+        switch self.stockInfoIndex {
+        case 0:
+            buttonTitle = "$" + String(self.realmTableData[sender.tag].close)
+            sender.setTitle(buttonTitle, forState: UIControlState.Normal)
+            stockInfoIndex = 1
+        case 1:
+            
+            buttonTitle = "$" + String(self.realmTableData[sender.tag].change)
+            sender.setTitle(buttonTitle, forState: UIControlState.Normal)
+            stockInfoIndex = 2
+        case 2:
+            buttonTitle = String(self.realmTableData[sender.tag].changePercent) + "%"
+            sender.setTitle(buttonTitle, forState: UIControlState.Normal)
+            stockInfoIndex = 0
+        default:
+            buttonTitle = "$" + String(self.realmTableData[sender.tag].close)
+            sender.setTitle(buttonTitle, forState: UIControlState.Normal)
+            stockInfoIndex = 1
+        }
+    }
+    
+    func isStockPricePositive(index: Int) -> Bool{
+        if self.realmTableData[index].changePercent > 0{
+            return true
+        }
+        return false
+    }
+    
+    func getGreenColor() -> UIColor{
+        // Green is used when it is a positive price
+        return UIColor(red: 1.0/255.0, green: 216.0/255.0, blue: 106.0/255.0, alpha: 1.0)
+    }
+    
+    func getRedColor() -> UIColor{
+        // Red is used when it is negative price
+        return UIColor(red: 217.0/255.0, green: 83.0/255.0, blue: 79.0/255.0, alpha: 0.7)
+    }
 }
 
 extension ViewController: UITableViewDataSource{
@@ -121,10 +179,16 @@ extension ViewController: UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        cell.textLabel?.text = self.realmTableData[indexPath.row].symbol
-        cell.detailTextLabel?.text = String(self.realmTableData[indexPath.row].close)
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! PortfolioCustomTableViewCell
         
+        cell.labelStockSymbol.text = self.realmTableData[indexPath.row].symbol
+        cell.buttonStockPrice.setTitle(String(self.realmTableData[indexPath.row].close), forState: UIControlState.Normal)
+        cell.buttonStockPrice.tag = indexPath.row
+        if self.isStockPricePositive(indexPath.row){
+            cell.buttonStockPrice.backgroundColor = self.getGreenColor()
+        } else {
+            cell.buttonStockPrice.backgroundColor = self.getRedColor()
+        }
         return cell
     }
 }

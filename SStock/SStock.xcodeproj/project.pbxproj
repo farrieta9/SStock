@@ -19,6 +19,7 @@
 		8C9E52D31CA5B4FD008769C4 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9E52D21CA5B4FD008769C4 /* SearchVC.swift */; };
 		8CA1DE161CCAF26D007E6D62 /* MarkitDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1DE151CCAF26D007E6D62 /* MarkitDataAPI.swift */; };
 		8CA94C171CB82E34006DFE5B /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA94C161CB82E34006DFE5B /* RealmUser.swift */; };
+		8CAF14E51CCEBC9A001F5399 /* PortfolioCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAF14E41CCEBC9A001F5399 /* PortfolioCustomTableViewCell.swift */; };
 		8CEEB7341CAA59AC0069799C /* StockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEEB7331CAA59AC0069799C /* StockManager.swift */; };
 		8CEEB7381CAA5A410069799C /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEEB7371CAA5A410069799C /* Stock.swift */; };
 		F868EB3942C0A0104D330054 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0587F2F5FDB1EA07A1BAF4A1 /* Pods.framework */; };
@@ -41,6 +42,7 @@
 		8C9E52D21CA5B4FD008769C4 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		8CA1DE151CCAF26D007E6D62 /* MarkitDataAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkitDataAPI.swift; sourceTree = "<group>"; };
 		8CA94C161CB82E34006DFE5B /* RealmUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
+		8CAF14E41CCEBC9A001F5399 /* PortfolioCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioCustomTableViewCell.swift; sourceTree = "<group>"; };
 		8CEEB7331CAA59AC0069799C /* StockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockManager.swift; sourceTree = "<group>"; };
 		8CEEB7371CAA5A410069799C /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		F0ED3BCA7FAFE5729F8840EC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				8CA94C161CB82E34006DFE5B /* RealmUser.swift */,
 				8CEEB7331CAA59AC0069799C /* StockManager.swift */,
 				8C0DCADC1CA5959100B140BE /* Main.storyboard */,
+				8CAF14E41CCEBC9A001F5399 /* PortfolioCustomTableViewCell.swift */,
 				8C9B0DD61CC136200076F47B /* StockStatsVC.swift */,
 				8C86DF3D1CB19DD100A8093C /* UserVC.swift */,
 				8C9E52D21CA5B4FD008769C4 /* SearchVC.swift */,
@@ -239,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C86DF3E1CB19DD100A8093C /* UserVC.swift in Sources */,
+				8CAF14E51CCEBC9A001F5399 /* PortfolioCustomTableViewCell.swift in Sources */,
 				8C9A2AAF1CAEF7B20048E238 /* RealmStock.swift in Sources */,
 				8C9E52D31CA5B4FD008769C4 /* SearchVC.swift in Sources */,
 				8C9B0DDB1CC1380B0076F47B /* StockStatsCustomCell.swift in Sources */,
