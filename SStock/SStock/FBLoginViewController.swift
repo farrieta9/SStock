@@ -10,6 +10,10 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
+// To fix the fbauth2 error
+// http://stackoverflow.com/questions/32006033/ios-9-fbauth2-missing-from-info-plist
+//https://www.youtube.com/watch?v=cpANieebE2M
+
 class FBLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     override func viewDidLoad() {
@@ -18,6 +22,7 @@ class FBLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             print("Not logged in")
         } else {
             print("logged in...")
+            
         }
         
         let loginButton = FBSDKLoginButton()
@@ -26,8 +31,14 @@ class FBLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         loginButton.delegate = self
         self.view.addSubview(loginButton)
         
-
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if FBSDKAccessToken.currentAccessToken() != nil{
+            self.performSegueWithIdentifier("loginVC", sender: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,5 +69,7 @@ class FBLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         print("User logged out...")
     }
+    
+    
 
 }
