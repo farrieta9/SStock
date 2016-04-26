@@ -171,6 +171,9 @@ class ViewController: UIViewController {
         // Red is used when it is negative price
         return UIColor(red: 217.0/255.0, green: 83.0/255.0, blue: 79.0/255.0, alpha: 0.7)
     }
+    func getBlueColor() -> UIColor{
+        return UIColor(red: 3.0/255.0, green: 146.0/255.0, blue: 207.0/255.0, alpha: 1.0)
+    }
 }
 
 extension ViewController: UITableViewDataSource{
@@ -251,7 +254,7 @@ extension ViewController: UITableViewDelegate{
             alert.view.setNeedsLayout()
             self.presentViewController(alert, animated: true, completion: nil)
         }
-        share.backgroundColor = UIColor.blueColor()
+        share.backgroundColor = self.getBlueColor()
         
         return [delete, share]
     }
