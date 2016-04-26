@@ -9,7 +9,6 @@
 import UIKit
 import RealmSwift
 import Firebase
-
 class ViewController: UIViewController {
     
     var realmTableData: Results<RealmStock>!
@@ -23,6 +22,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         let realm = try! Realm()
         realmTableData = realm.objects(RealmStock)
         
@@ -174,6 +175,8 @@ class ViewController: UIViewController {
     func getBlueColor() -> UIColor{
         return UIColor(red: 3.0/255.0, green: 146.0/255.0, blue: 207.0/255.0, alpha: 1.0)
     }
+    
+    
 }
 
 extension ViewController: UITableViewDataSource{

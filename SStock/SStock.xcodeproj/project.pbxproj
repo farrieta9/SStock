@@ -12,6 +12,9 @@
 		8C0DCADE1CA5959100B140BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C0DCADC1CA5959100B140BE /* Main.storyboard */; };
 		8C0DCAE01CA5959100B140BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C0DCADF1CA5959100B140BE /* Assets.xcassets */; };
 		8C0DCAE31CA5959100B140BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C0DCAE11CA5959100B140BE /* LaunchScreen.storyboard */; };
+		8C5520A61CCF2BBA0027B21A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5520A41CCF2BBA0027B21A /* FBSDKCoreKit.framework */; };
+		8C5520A71CCF2BBA0027B21A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5520A51CCF2BBA0027B21A /* FBSDKLoginKit.framework */; };
+		8C5520A91CCF304E0027B21A /* FBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5520A81CCF304E0027B21A /* FBLoginViewController.swift */; };
 		8C86DF3E1CB19DD100A8093C /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86DF3D1CB19DD100A8093C /* UserVC.swift */; };
 		8C9A2AAF1CAEF7B20048E238 /* RealmStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9A2AAE1CAEF7B20048E238 /* RealmStock.swift */; };
 		8C9B0DD71CC136200076F47B /* StockStatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B0DD61CC136200076F47B /* StockStatsVC.swift */; };
@@ -35,6 +38,9 @@
 		8C0DCADF1CA5959100B140BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C0DCAE21CA5959100B140BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C0DCAE41CA5959100B140BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C5520A41CCF2BBA0027B21A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		8C5520A51CCF2BBA0027B21A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		8C5520A81CCF304E0027B21A /* FBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginViewController.swift; sourceTree = "<group>"; };
 		8C86DF3D1CB19DD100A8093C /* UserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVC.swift; sourceTree = "<group>"; };
 		8C9A2AAE1CAEF7B20048E238 /* RealmStock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmStock.swift; sourceTree = "<group>"; };
 		8C9B0DD61CC136200076F47B /* StockStatsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockStatsVC.swift; sourceTree = "<group>"; };
@@ -54,6 +60,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F868EB3942C0A0104D330054 /* Pods.framework in Frameworks */,
+				8C5520A61CCF2BBA0027B21A /* FBSDKCoreKit.framework in Frameworks */,
+				8C5520A71CCF2BBA0027B21A /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +71,8 @@
 		795E30FE6E54989DC0DBADDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8C5520A41CCF2BBA0027B21A /* FBSDKCoreKit.framework */,
+				8C5520A51CCF2BBA0027B21A /* FBSDKLoginKit.framework */,
 				0587F2F5FDB1EA07A1BAF4A1 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -105,6 +115,7 @@
 				8CEEB7371CAA5A410069799C /* Stock.swift */,
 				8C9A2AAE1CAEF7B20048E238 /* RealmStock.swift */,
 				8CA1DE151CCAF26D007E6D62 /* MarkitDataAPI.swift */,
+				8C5520A81CCF304E0027B21A /* FBLoginViewController.swift */,
 			);
 			path = SStock;
 			sourceTree = "<group>";
@@ -241,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C5520A91CCF304E0027B21A /* FBLoginViewController.swift in Sources */,
 				8C86DF3E1CB19DD100A8093C /* UserVC.swift in Sources */,
 				8CAF14E51CCEBC9A001F5399 /* PortfolioCustomTableViewCell.swift in Sources */,
 				8C9A2AAF1CAEF7B20048E238 /* RealmStock.swift in Sources */,
@@ -368,6 +380,10 @@
 			baseConfigurationReference = F0ED3BCA7FAFE5729F8840EC /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SStock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = USU.SStock;
@@ -380,6 +396,10 @@
 			baseConfigurationReference = 19D8C5D0EC378703F9B5FA53 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SStock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = USU.SStock;
