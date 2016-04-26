@@ -84,11 +84,18 @@ class UserVC: UIViewController{
             let user = RealmUser()
             user.userName = textField.text!
             try! realm.write() {
-//                realmUserData.userName = textField.text!
                 realm.add(user)
             }
             dismissViewControllerAnimated(true, completion: nil)
         }
+    }
+    
+    func getGreenColor() -> UIColor{
+        return UIColor(red: 1.0/255.0, green: 216.0/255.0, blue: 106.0/255.0, alpha: 1.0)
+    }
+    
+    func getBlueColor() -> UIColor{
+        return UIColor(red: 3.0/255.0, green: 146.0/255.0, blue: 207.0/255.0, alpha: 1.0)
     }
 }
 
@@ -102,9 +109,10 @@ extension UserVC: UITableViewDataSource{
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
         cell.textLabel?.text = tableData[indexPath.row].0
-        cell.textLabel?.textColor = UIColor.blueColor()
+        cell.textLabel?.textColor = self.getBlueColor()
         cell.detailTextLabel?.text = tableData[indexPath.row].1
-        cell.detailTextLabel?.textColor = UIColor.greenColor()
+        cell.detailTextLabel?.textColor = self.getGreenColor()
+        
         
         return cell
     }
