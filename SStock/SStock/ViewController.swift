@@ -133,7 +133,6 @@ class ViewController: UIViewController {
         
         print(sender.titleLabel?.text)
         print(sender.tag)
-//        sender.setTitle(String(self.realmTableData[sender.tag].changePercent), forState: UIControlState.Normal)
         var buttonTitle: String!
         switch self.stockInfoIndex {
         case 0:
@@ -175,8 +174,6 @@ class ViewController: UIViewController {
     func getBlueColor() -> UIColor{
         return UIColor(red: 3.0/255.0, green: 146.0/255.0, blue: 207.0/255.0, alpha: 1.0)
     }
-    
-    
 }
 
 extension ViewController: UITableViewDataSource{
@@ -188,7 +185,9 @@ extension ViewController: UITableViewDataSource{
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! PortfolioCustomTableViewCell
         
         cell.labelStockSymbol.text = self.realmTableData[indexPath.row].symbol
-        cell.buttonStockPrice.setTitle(String(self.realmTableData[indexPath.row].close), forState: UIControlState.Normal)
+        let buttonTitle = "$" + String((self.realmTableData[indexPath.row].close))
+        
+        cell.buttonStockPrice.setTitle(buttonTitle, forState: UIControlState.Normal)
         cell.buttonStockPrice.tag = indexPath.row
         if self.isStockPricePositive(indexPath.row){
             cell.buttonStockPrice.backgroundColor = self.getGreenColor()

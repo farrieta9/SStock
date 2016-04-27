@@ -22,6 +22,7 @@ class FBLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             print("Not logged in")
         } else {
             print("logged in...")
+            self.returnUserData()
             
         }
         
@@ -32,6 +33,22 @@ class FBLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.view.addSubview(loginButton)
         
         // Do any additional setup after loading the view.
+    }
+    
+    func returnUserData()
+    {
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"name, email"])
+        graphRequest.startWithCompletionHandler({(connection, result, error) -> Void in
+            
+            if ((error) != nil){
+                print("Failed to get user info")
+            } else {
+                let userName: String = result.valueForKey("name") as! String
+                let email: String = result.valueForKey("email") as! String
+                print(userName)
+                print(email)
+            }
+        })
     }
     
     override func viewDidAppear(animated: Bool) {
