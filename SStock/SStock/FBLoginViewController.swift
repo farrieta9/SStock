@@ -16,24 +16,28 @@ import FBSDKLoginKit
 
 class FBLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if FBSDKAccessToken.currentAccessToken() == nil{
-            print("Not logged in")
-        } else {
-            print("logged in...")
-            self.returnUserData()
-        }
-        
-        let loginButton = FBSDKLoginButton()
-        loginButton.readPermissions = ["public_profile", "email", "user_friends"]
-        loginButton.center = self.view.center
-        loginButton.delegate = self
-        self.view.addSubview(loginButton)
-        
-        // Do any additional setup after loading the view.
-    }
-    
+	@IBOutlet weak var loginButton: FBSDKLoginButton!
+	
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        if FBSDKAccessToken.currentAccessToken() == nil{
+//            print("Not logged in")
+//			loginButton.readPermissions = ["public_profile", "email", "user_friends"]
+//			loginButton.delegate = self
+//        } else {
+//            print("logged in...")
+//            self.returnUserData()
+//        }
+////        
+////        let loginButton = FBSDKLoginButton()
+////        loginButton.readPermissions = ["public_profile", "email", "user_friends"]
+////        loginButton.center = self.view.center
+////        loginButton.delegate = self
+////        self.view.addSubview(loginButton)
+//		
+//        // Do any additional setup after loading the view.
+//    }
+	
     func returnUserData()
     {
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"name, email"])
@@ -50,12 +54,19 @@ class FBLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         })
     }
     
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        if FBSDKAccessToken.currentAccessToken() != nil{
-//            self.performSegueWithIdentifier("loginVC", sender: self)
-//        }
-//    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if FBSDKAccessToken.currentAccessToken() != nil{
+			print("logged in ")
+            self.performSegueWithIdentifier("loginVC", sender: self)
+        }
+		else {
+			print("Not logged in")
+			loginButton.readPermissions = ["public_profile", "email", "user_friends"]
+			loginButton.delegate = self
+			
+		}
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

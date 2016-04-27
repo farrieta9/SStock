@@ -127,7 +127,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uaC-QF-Jm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="3ev-1W-wgY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="313" y="-345"/>
+            <point key="canvasLocation" x="313" y="-359"/>
         </scene>
         <!--Portfolio-->
         <scene sceneID="tne-QT-ifu">
@@ -400,9 +400,32 @@
                     <view key="view" contentMode="scaleToFill" id="cl2-U5-WqY">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45v-uY-l3d" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Dnp-UD-f4l" firstAttribute="top" secondItem="45v-uY-l3d" secondAttribute="bottom" constant="291" id="8OT-jR-lof"/>
+                            <constraint firstItem="45v-uY-l3d" firstAttribute="leading" secondItem="cl2-U5-WqY" secondAttribute="leadingMargin" constant="152" id="HWI-D0-yZB"/>
+                            <constraint firstItem="45v-uY-l3d" firstAttribute="top" secondItem="xug-x4-Se7" secondAttribute="bottom" constant="265" id="WYt-JU-orT"/>
+                            <constraint firstItem="45v-uY-l3d" firstAttribute="centerY" secondItem="cl2-U5-WqY" secondAttribute="centerY" id="Yfz-bL-m2g"/>
+                            <constraint firstItem="45v-uY-l3d" firstAttribute="centerX" secondItem="cl2-U5-WqY" secondAttribute="centerX" id="jRa-GB-bSm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="45v-uY-l3d" secondAttribute="trailing" constant="291" id="n4E-hg-o4x"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="HWI-D0-yZB"/>
+                                <exclude reference="WYt-JU-orT"/>
+                                <exclude reference="n4E-hg-o4x"/>
+                                <exclude reference="8OT-jR-lof"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="45v-uY-l3d" id="CY1-dP-1qn"/>
                         <segue destination="8f5-XN-fdb" kind="presentation" identifier="loginVC" id="Mdj-Ec-zum"/>
                     </connections>
                 </viewController>
