@@ -23,7 +23,6 @@ class FBLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         } else {
             print("logged in...")
             self.returnUserData()
-            
         }
         
         let loginButton = FBSDKLoginButton()
@@ -51,12 +50,12 @@ class FBLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         })
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        if FBSDKAccessToken.currentAccessToken() != nil{
-            self.performSegueWithIdentifier("loginVC", sender: self)
-        }
-    }
+//    override func viewDidAppear(animated: Bool) {
+//        super.viewDidAppear(animated)
+//        if FBSDKAccessToken.currentAccessToken() != nil{
+//            self.performSegueWithIdentifier("loginVC", sender: self)
+//        }
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

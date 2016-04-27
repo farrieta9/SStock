@@ -74,6 +74,7 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="onLogout:" destination="0MN-e0-aLJ" eventType="touchUpInside" id="zSg-cG-KsB"/>
+                                    <segue destination="3ev-1W-wgY" kind="unwind" identifier="unwindToInitVC" unwindAction="unwindToInitVC:" id="J0m-0L-LGp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -124,8 +125,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uaC-QF-Jm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3ev-1W-wgY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="267" y="-359"/>
+            <point key="canvasLocation" x="313" y="-345"/>
         </scene>
         <!--Portfolio-->
         <scene sceneID="tne-QT-ifu">

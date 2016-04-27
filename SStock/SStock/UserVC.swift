@@ -62,11 +62,12 @@ class UserVC: UIViewController{
             }
         })
     }
+	
 	@IBAction func onLogout(sender: UIButton) {
 		// To get the logout picture set the button to use the custom class FBSDKLoginButton
 		let loginManager = FBSDKLoginManager()
 		loginManager.logOut()
-		
+//		self.dismissViewControllerAnimated(true, completion: nil)
 	}
     
     @IBOutlet weak var textField: UITextField!
