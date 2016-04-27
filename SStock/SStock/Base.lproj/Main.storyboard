@@ -36,7 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EHr-Op-fui">
-                                <rect key="frame" x="0.0" y="124" width="600" height="476"/>
+                                <rect key="frame" x="0.0" y="124" width="600" height="430"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="Zgt-RM-BMu" detailTextLabel="ohL-fK-41h" style="IBUITableViewCellStyleValue1" id="woW-XY-Elc">
@@ -69,20 +69,31 @@
                                     <outlet property="delegate" destination="0MN-e0-aLJ" id="vlc-XE-UX9"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RND-PB-seb" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="20" y="562" width="560" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onLogout:" destination="0MN-e0-aLJ" eventType="touchUpInside" id="zSg-cG-KsB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="plk-Qv-eUr" firstAttribute="top" secondItem="8i7-Cv-GZv" secondAttribute="bottom" constant="498" id="6Pl-d1-Waf"/>
                             <constraint firstAttribute="leadingMargin" secondItem="4ce-2f-QRz" secondAttribute="leading" id="AD9-Hs-Bcj"/>
+                            <constraint firstItem="plk-Qv-eUr" firstAttribute="top" secondItem="RND-PB-seb" secondAttribute="bottom" constant="8" id="BnC-Zf-Ofd"/>
                             <constraint firstItem="8i7-Cv-GZv" firstAttribute="leading" secondItem="4ce-2f-QRz" secondAttribute="trailing" constant="15" id="Clg-Jz-Tsg"/>
                             <constraint firstItem="EHr-Op-fui" firstAttribute="leading" secondItem="otB-Xk-1Fh" secondAttribute="leadingMargin" constant="-20" id="DPK-Bt-5OW"/>
                             <constraint firstItem="EHr-Op-fui" firstAttribute="top" secondItem="4ce-2f-QRz" secondAttribute="bottom" constant="15" id="Dat-mr-AQP"/>
                             <constraint firstItem="EHr-Op-fui" firstAttribute="top" secondItem="8i7-Cv-GZv" secondAttribute="bottom" constant="15" id="IWg-7Y-XLn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RND-PB-seb" secondAttribute="trailing" id="JjK-Xx-Yju"/>
                             <constraint firstItem="8i7-Cv-GZv" firstAttribute="top" secondItem="McL-xP-PiX" secondAttribute="bottom" constant="15" id="O6I-lS-N8X"/>
+                            <constraint firstItem="RND-PB-seb" firstAttribute="leading" secondItem="otB-Xk-1Fh" secondAttribute="leadingMargin" id="TS5-U8-caR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EHr-Op-fui" secondAttribute="trailing" constant="-20" id="WgX-to-nMv"/>
                             <constraint firstItem="4ce-2f-QRz" firstAttribute="top" secondItem="McL-xP-PiX" secondAttribute="bottom" constant="15" id="fb1-hO-T4h"/>
                             <constraint firstItem="plk-Qv-eUr" firstAttribute="top" secondItem="EHr-Op-fui" secondAttribute="bottom" id="l1c-QD-QCi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8i7-Cv-GZv" secondAttribute="trailing" constant="100" id="lYY-yN-nfF"/>
+                            <constraint firstItem="RND-PB-seb" firstAttribute="top" secondItem="EHr-Op-fui" secondAttribute="bottom" constant="8" id="sfw-ul-NVY"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -90,6 +101,7 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="6Pl-d1-Waf"/>
+                                <exclude reference="l1c-QD-QCi"/>
                             </mask>
                         </variation>
                     </view>
@@ -106,6 +118,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonLogout" destination="RND-PB-seb" id="XmP-c6-DBz"/>
                         <outlet property="tableView" destination="EHr-Op-fui" id="yUL-wT-Dus"/>
                         <outlet property="textField" destination="8i7-Cv-GZv" id="QaB-IA-CCu"/>
                     </connections>

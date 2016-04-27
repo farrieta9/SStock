@@ -9,10 +9,13 @@
 import UIKit
 import RealmSwift
 import Firebase
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class UserVC: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var buttonLogout: UIButton!
     var realmUserData: Results<RealmUser>!
     var rootRef = Firebase(url: "https://sstock.firebaseio.com/")
     var tableData = [(String, String, String)]()
@@ -59,6 +62,12 @@ class UserVC: UIViewController{
             }
         })
     }
+	@IBAction func onLogout(sender: UIButton) {
+		// To get the logout picture set the button to use the custom class FBSDKLoginButton
+		let loginManager = FBSDKLoginManager()
+		loginManager.logOut()
+		
+	}
     
     @IBOutlet weak var textField: UITextField!
     @IBAction func onCancel(sender: UIBarButtonItem) {
