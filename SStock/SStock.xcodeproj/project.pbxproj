@@ -159,12 +159,12 @@
 		8C0DCAD71CA5959100B140BE /* SStock */ = {
 			isa = PBXGroup;
 			children = (
-				8C65C0711CE7A4A500E42863 /* ViewControllers */,
 				8C65C06F1CE7A46100E42863 /* APIs */,
 				8C65C06E1CE79AA300E42863 /* CustomCells */,
-				8C0DCAD81CA5959100B140BE /* AppDelegate.swift */,
+				8C65C0711CE7A4A500E42863 /* ViewControllers */,
 				8CA94C161CB82E34006DFE5B /* RealmUser.swift */,
 				8CEEB7331CAA59AC0069799C /* StockManager.swift */,
+				8C0DCAD81CA5959100B140BE /* AppDelegate.swift */,
 				8C0DCADC1CA5959100B140BE /* Main.storyboard */,
 				8C0DCADF1CA5959100B140BE /* Assets.xcassets */,
 				8C0DCAE11CA5959100B140BE /* LaunchScreen.storyboard */,

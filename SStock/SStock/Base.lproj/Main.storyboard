@@ -315,23 +315,23 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chartCell" rowHeight="159" id="Aej-Di-ejo" customClass="ChartTableViewCell" customModule="SStock" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="159"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chartCell" rowHeight="50" id="Aej-Di-ejo" customClass="ChartTableViewCell" customModule="SStock" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aej-Di-ejo" id="XWd-c2-mfX">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="158.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRE-uN-hBX" customClass="LineChartView" customModule="Charts">
-                                                    <rect key="frame" x="0.0" y="8" width="600" height="150.5"/>
+                                                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRE-uN-hBX" customClass="LineChartView" customModule="Charts">
+                                                    <rect key="frame" x="8" y="8" width="584" height="34"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="XRE-uN-hBX" secondAttribute="bottom" constant="-8" id="5Fm-WE-heh"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="XRE-uN-hBX" secondAttribute="trailing" constant="-8" id="NYE-uc-NBa"/>
-                                                <constraint firstItem="XRE-uN-hBX" firstAttribute="leading" secondItem="XWd-c2-mfX" secondAttribute="leadingMargin" constant="-8" id="sIk-2r-wxV"/>
-                                                <constraint firstItem="XRE-uN-hBX" firstAttribute="top" secondItem="XWd-c2-mfX" secondAttribute="topMargin" id="u7I-TF-AoJ"/>
+                                                <constraint firstAttribute="topMargin" secondItem="XRE-uN-hBX" secondAttribute="top" id="EVV-xM-7dN"/>
+                                                <constraint firstItem="XRE-uN-hBX" firstAttribute="leading" secondItem="XWd-c2-mfX" secondAttribute="leadingMargin" id="QYG-ff-4fF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="XRE-uN-hBX" secondAttribute="bottom" id="fb9-Kv-Jzx"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="XRE-uN-hBX" secondAttribute="trailing" id="rga-4x-75f"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -339,7 +339,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dataCell" rowHeight="50" id="Ulf-tq-IbH" customClass="StockStatsCustomCell" customModule="SStock" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="187" width="600" height="50"/>
+                                        <rect key="frame" x="0.0" y="78" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ulf-tq-IbH" id="w8P-F3-dtj">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>

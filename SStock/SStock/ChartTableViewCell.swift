@@ -15,12 +15,22 @@ class ChartTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+		lineChartView.xAxis.labelPosition = .Bottom
+		
+		// Disable y axis label from appearing on the right side of the chart
+		let yaxis = lineChartView.getAxis(ChartYAxis.AxisDependency.Right)
+		yaxis.drawLabelsEnabled = false
+		
+		
+		lineChartView.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
+		lineChartView.descriptionText = ""
+		
+		lineChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
 		
 		let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
 		let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
 		
 		setChart(months, values: unitsSold)
-		
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

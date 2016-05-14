@@ -40,38 +40,38 @@ class StockStatsVC: UIViewController{
 
 extension StockStatsVC: UITableViewDataSource{
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
-	
 	
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCellWithIdentifier("chartCell", forIndexPath: indexPath) as! ChartTableViewCell
-			cell.autoresizesSubviews = true
+//			cell.autoresizesSubviews = true
 			
 			return cell
 		}
-        
-        indexPath.row == 1
-			let cell = tableView.dequeueReusableCellWithIdentifier("dataCell", forIndexPath: indexPath) as! StockStatsCustomCell
-            cell.labelLeftTitle.text = stats[indexPath.row][0]
-            cell.labelLeftStat.text = stats[indexPath.row][1]
-            cell.labelRightTitle.text = stats[indexPath.row][2]
-            cell.labelRightStat.text = stats[indexPath.row][3]
-			return cell
-        
+		
+		let cell = tableView.dequeueReusableCellWithIdentifier("dataCell", forIndexPath: indexPath) as! StockStatsCustomCell
+		cell.labelLeftTitle.text = stats[indexPath.row][0]
+		cell.labelLeftStat.text = stats[indexPath.row][1]
+		cell.labelRightTitle.text = stats[indexPath.row][2]
+		cell.labelRightStat.text = stats[indexPath.row][3]
+		return cell
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 	
-//	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//		return UITableViewAutomaticDimension
-//	}
-//	
+	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		if indexPath.row == 0 {
+			return 300
+		}
+		return 50
+	}
+//
 //	func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//		return UITableViewAutomaticDimension
+//		return 160
 //	}
 }
 
