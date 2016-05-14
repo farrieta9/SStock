@@ -8,9 +8,11 @@
 
 import UIKit
 import RealmSwift
+import Charts
+
 
 class StockStatsVC: UIViewController{
-    
+	
     @IBOutlet weak var tableView: UITableView!
 //    var realmStock : RealmStock {
 //        didSet {    
@@ -24,36 +26,55 @@ class StockStatsVC: UIViewController{
     var header: String!
     
     var stats = [[String]]()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print(stats.count)
-        print(stats[0])
-    }
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		
+		print(stats.count)
+		print(stats[0])
+	}
 }
+
+
 
 extension StockStatsVC: UITableViewDataSource{
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stats.count
+        return 2
     }
-    
+	
+	
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! StockStatsCustomCell
+		
+		if indexPath.row == 0 {
+			let cell = tableView.dequeueReusableCellWithIdentifier("chartCell", forIndexPath: indexPath) as! ChartTableViewCell
+			cell.autoresizesSubviews = true
+			
+			return cell
+		}
         
-        if indexPath.section == 0{
+        indexPath.row == 1
+			let cell = tableView.dequeueReusableCellWithIdentifier("dataCell", forIndexPath: indexPath) as! StockStatsCustomCell
             cell.labelLeftTitle.text = stats[indexPath.row][0]
             cell.labelLeftStat.text = stats[indexPath.row][1]
             cell.labelRightTitle.text = stats[indexPath.row][2]
             cell.labelRightStat.text = stats[indexPath.row][3]
-        }
+			return cell
         
-        return cell
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    
+	
+//	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//		return UITableViewAutomaticDimension
+//	}
+//	
+//	func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//		return UITableViewAutomaticDimension
+//	}
 }
+
 
 extension StockStatsVC: UITableViewDelegate{
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -62,8 +83,8 @@ extension StockStatsVC: UITableViewDelegate{
         }
         return ""
     }
-
 }
+
 
 
 

@@ -12,9 +12,12 @@
 		8C0DCADE1CA5959100B140BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C0DCADC1CA5959100B140BE /* Main.storyboard */; };
 		8C0DCAE01CA5959100B140BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C0DCADF1CA5959100B140BE /* Assets.xcassets */; };
 		8C0DCAE31CA5959100B140BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C0DCAE11CA5959100B140BE /* LaunchScreen.storyboard */; };
+		8C2159321CE780A500D2F3E3 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C21592B1CE7808C00D2F3E3 /* Charts.framework */; };
+		8C2159331CE780A500D2F3E3 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C21592B1CE7808C00D2F3E3 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8C5520A61CCF2BBA0027B21A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5520A41CCF2BBA0027B21A /* FBSDKCoreKit.framework */; };
 		8C5520A71CCF2BBA0027B21A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5520A51CCF2BBA0027B21A /* FBSDKLoginKit.framework */; };
 		8C5520A91CCF304E0027B21A /* FBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5520A81CCF304E0027B21A /* FBLoginViewController.swift */; };
+		8C65C06A1CE79A9C00E42863 /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C65C0691CE79A9C00E42863 /* ChartTableViewCell.swift */; };
 		8C86DF3E1CB19DD100A8093C /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86DF3D1CB19DD100A8093C /* UserVC.swift */; };
 		8C9A2AAF1CAEF7B20048E238 /* RealmStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9A2AAE1CAEF7B20048E238 /* RealmStock.swift */; };
 		8C9B0DD71CC136200076F47B /* StockStatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9B0DD61CC136200076F47B /* StockStatsVC.swift */; };
@@ -28,6 +31,58 @@
 		F868EB3942C0A0104D330054 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0587F2F5FDB1EA07A1BAF4A1 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8C21592A1CE7808C00D2F3E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C2159231CE7808C00D2F3E3 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		8C21592C1CE7808C00D2F3E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C2159231CE7808C00D2F3E3 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		8C21592E1CE7808C00D2F3E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C2159231CE7808C00D2F3E3 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
+			remoteInfo = "Charts-OSX";
+		};
+		8C2159301CE7808C00D2F3E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C2159231CE7808C00D2F3E3 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		8C2159341CE780A500D2F3E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C2159231CE7808C00D2F3E3 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8C2159361CE780A500D2F3E3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8C2159331CE780A500D2F3E3 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0587F2F5FDB1EA07A1BAF4A1 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19D8C5D0EC378703F9B5FA53 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -38,9 +93,11 @@
 		8C0DCADF1CA5959100B140BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C0DCAE21CA5959100B140BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C0DCAE41CA5959100B140BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C2159231CE7808C00D2F3E3 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = SOURCE_ROOT; };
 		8C5520A41CCF2BBA0027B21A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		8C5520A51CCF2BBA0027B21A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		8C5520A81CCF304E0027B21A /* FBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginViewController.swift; sourceTree = "<group>"; };
+		8C65C0691CE79A9C00E42863 /* ChartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
 		8C86DF3D1CB19DD100A8093C /* UserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVC.swift; sourceTree = "<group>"; };
 		8C9A2AAE1CAEF7B20048E238 /* RealmStock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmStock.swift; sourceTree = "<group>"; };
 		8C9B0DD61CC136200076F47B /* StockStatsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockStatsVC.swift; sourceTree = "<group>"; };
@@ -60,6 +117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F868EB3942C0A0104D330054 /* Pods.framework in Frameworks */,
+				8C2159321CE780A500D2F3E3 /* Charts.framework in Frameworks */,
 				8C5520A61CCF2BBA0027B21A /* FBSDKCoreKit.framework in Frameworks */,
 				8C5520A71CCF2BBA0027B21A /* FBSDKLoginKit.framework in Frameworks */,
 			);
@@ -81,6 +139,8 @@
 		8C0DCACC1CA5959100B140BE = {
 			isa = PBXGroup;
 			children = (
+				8C2159371CE781F200D2F3E3 /* Docs */,
+				8C2159231CE7808C00D2F3E3 /* Charts.xcodeproj */,
 				8C0DCAD71CA5959100B140BE /* SStock */,
 				8C0DCAD61CA5959100B140BE /* Products */,
 				AA4436971049686DEB884935 /* Pods */,
@@ -99,25 +159,68 @@
 		8C0DCAD71CA5959100B140BE /* SStock */ = {
 			isa = PBXGroup;
 			children = (
+				8C65C0711CE7A4A500E42863 /* ViewControllers */,
+				8C65C06F1CE7A46100E42863 /* APIs */,
+				8C65C06E1CE79AA300E42863 /* CustomCells */,
 				8C0DCAD81CA5959100B140BE /* AppDelegate.swift */,
-				8C0DCADA1CA5959100B140BE /* ViewController.swift */,
-				8C9B0DDA1CC1380B0076F47B /* StockStatsCustomCell.swift */,
 				8CA94C161CB82E34006DFE5B /* RealmUser.swift */,
 				8CEEB7331CAA59AC0069799C /* StockManager.swift */,
 				8C0DCADC1CA5959100B140BE /* Main.storyboard */,
-				8CAF14E41CCEBC9A001F5399 /* PortfolioCustomTableViewCell.swift */,
-				8C9B0DD61CC136200076F47B /* StockStatsVC.swift */,
-				8C86DF3D1CB19DD100A8093C /* UserVC.swift */,
-				8C9E52D21CA5B4FD008769C4 /* SearchVC.swift */,
 				8C0DCADF1CA5959100B140BE /* Assets.xcassets */,
 				8C0DCAE11CA5959100B140BE /* LaunchScreen.storyboard */,
 				8C0DCAE41CA5959100B140BE /* Info.plist */,
 				8CEEB7371CAA5A410069799C /* Stock.swift */,
 				8C9A2AAE1CAEF7B20048E238 /* RealmStock.swift */,
-				8CA1DE151CCAF26D007E6D62 /* MarkitDataAPI.swift */,
 				8C5520A81CCF304E0027B21A /* FBLoginViewController.swift */,
 			);
 			path = SStock;
+			sourceTree = "<group>";
+		};
+		8C2159241CE7808C00D2F3E3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8C21592B1CE7808C00D2F3E3 /* Charts.framework */,
+				8C21592D1CE7808C00D2F3E3 /* Charts.framework */,
+				8C21592F1CE7808C00D2F3E3 /* Charts.framework */,
+				8C2159311CE7808C00D2F3E3 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8C2159371CE781F200D2F3E3 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Docs;
+			sourceTree = "<group>";
+		};
+		8C65C06E1CE79AA300E42863 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				8C65C0691CE79A9C00E42863 /* ChartTableViewCell.swift */,
+				8CAF14E41CCEBC9A001F5399 /* PortfolioCustomTableViewCell.swift */,
+				8C9B0DDA1CC1380B0076F47B /* StockStatsCustomCell.swift */,
+			);
+			name = CustomCells;
+			sourceTree = "<group>";
+		};
+		8C65C06F1CE7A46100E42863 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				8CA1DE151CCAF26D007E6D62 /* MarkitDataAPI.swift */,
+			);
+			name = APIs;
+			sourceTree = "<group>";
+		};
+		8C65C0711CE7A4A500E42863 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8C9E52D21CA5B4FD008769C4 /* SearchVC.swift */,
+				8C9B0DD61CC136200076F47B /* StockStatsVC.swift */,
+				8C86DF3D1CB19DD100A8093C /* UserVC.swift */,
+				8C0DCADA1CA5959100B140BE /* ViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		AA4436971049686DEB884935 /* Pods */ = {
@@ -142,10 +245,12 @@
 				8C0DCAD31CA5959100B140BE /* Resources */,
 				2CBA2A585A71210D8B701739 /* Embed Pods Frameworks */,
 				800989DFD7629087CCB667F3 /* Copy Pods Resources */,
+				8C2159361CE780A500D2F3E3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8C2159351CE780A500D2F3E3 /* PBXTargetDependency */,
 			);
 			name = SStock;
 			productName = SStock;
@@ -179,12 +284,49 @@
 			mainGroup = 8C0DCACC1CA5959100B140BE;
 			productRefGroup = 8C0DCAD61CA5959100B140BE /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8C2159241CE7808C00D2F3E3 /* Products */;
+					ProjectRef = 8C2159231CE7808C00D2F3E3 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8C0DCAD41CA5959100B140BE /* SStock */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8C21592B1CE7808C00D2F3E3 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 8C21592A1CE7808C00D2F3E3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8C21592D1CE7808C00D2F3E3 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 8C21592C1CE7808C00D2F3E3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8C21592F1CE7808C00D2F3E3 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 8C21592E1CE7808C00D2F3E3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8C2159311CE7808C00D2F3E3 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 8C2159301CE7808C00D2F3E3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8C0DCAD31CA5959100B140BE /* Resources */ = {
@@ -264,11 +406,20 @@
 				8CEEB7381CAA5A410069799C /* Stock.swift in Sources */,
 				8CA1DE161CCAF26D007E6D62 /* MarkitDataAPI.swift in Sources */,
 				8C0DCADB1CA5959100B140BE /* ViewController.swift in Sources */,
+				8C65C06A1CE79A9C00E42863 /* ChartTableViewCell.swift in Sources */,
 				8C0DCAD91CA5959100B140BE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8C2159351CE780A500D2F3E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 8C2159341CE780A500D2F3E3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8C0DCADC1CA5959100B140BE /* Main.storyboard */ = {
@@ -380,6 +531,7 @@
 			baseConfigurationReference = F0ED3BCA7FAFE5729F8840EC /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -396,6 +548,7 @@
 			baseConfigurationReference = 19D8C5D0EC378703F9B5FA53 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

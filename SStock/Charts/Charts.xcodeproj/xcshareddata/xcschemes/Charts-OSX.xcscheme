@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E4DA3F73336B631A4737936476051E2B"
-               BuildableName = "RealmSwift.framework"
-               BlueprintName = "RealmSwift"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "65B3F5BE1C7370BE000983D0"
+               BuildableName = "Charts.framework"
+               BlueprintName = "Charts-OSX"
+               ReferencedContainer = "container:Charts.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E4DA3F73336B631A4737936476051E2B"
-            BuildableName = "RealmSwift.framework"
-            BlueprintName = "RealmSwift"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "65B3F5BE1C7370BE000983D0"
+            BuildableName = "Charts.framework"
+            BlueprintName = "Charts-OSX"
+            ReferencedContainer = "container:Charts.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -60,6 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "65B3F5BE1C7370BE000983D0"
+            BuildableName = "Charts.framework"
+            BlueprintName = "Charts-OSX"
+            ReferencedContainer = "container:Charts.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
