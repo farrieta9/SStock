@@ -323,15 +323,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRE-uN-hBX" customClass="LineChartView" customModule="Charts">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="49.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="topMargin" secondItem="XRE-uN-hBX" secondAttribute="top" constant="8" id="EVV-xM-7dN"/>
-                                                <constraint firstItem="XRE-uN-hBX" firstAttribute="leading" secondItem="XWd-c2-mfX" secondAttribute="leadingMargin" constant="-8" id="QYG-ff-4fF"/>
+                                                <constraint firstItem="XRE-uN-hBX" firstAttribute="leading" secondItem="XWd-c2-mfX" secondAttribute="leadingMargin" id="QYG-ff-4fF"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="XRE-uN-hBX" secondAttribute="bottom" constant="-8" id="fb9-Kv-Jzx"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="XRE-uN-hBX" secondAttribute="trailing" constant="-8" id="rga-4x-75f"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="XRE-uN-hBX" secondAttribute="trailing" id="rga-4x-75f"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

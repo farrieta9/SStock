@@ -9,9 +9,13 @@
 import UIKit
 import Charts
 
+
 class ChartTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var lineChartView: LineChartView!
+	
+	var chartBackgroundColor: UIColor!
+	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,8 +25,7 @@ class ChartTableViewCell: UITableViewCell {
 		let yaxis = lineChartView.getAxis(ChartYAxis.AxisDependency.Right)
 		yaxis.drawLabelsEnabled = false
 		
-		
-		lineChartView.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
+		setChartBackgroundColor(189, green: 195, blue: 199, transparent: 1)
 		lineChartView.descriptionText = ""
 		
 		lineChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
@@ -32,12 +35,21 @@ class ChartTableViewCell: UITableViewCell {
 		
 		setChart(months, values: unitsSold)
     }
-
+	
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
+	
+	func getChartBackgroundColor() -> UIColor {
+		return chartBackgroundColor
+	}
+	
+	func setChartBackgroundColor(red: CGFloat, green: CGFloat, blue: CGFloat, transparent: CGFloat){
+		chartBackgroundColor = UIColor(red: red/255, green: green/255, blue: blue/255, alpha: transparent)
+		self.lineChartView.backgroundColor = chartBackgroundColor
+	}
 	
 	func setChart(dataPoints: [String], values: [Double]) {
 		

@@ -77,19 +77,51 @@ class StockManager
         let convertedDate = dateFormatter.stringFromDate(currentDate)
         return convertedDate
     }
-    
-    static func getStartDate() -> String{
+	
+	static func getStartDate(daysAgo: Int = 4) -> String{
 //        Source http://stackoverflow.com/questions/26942123/nsdate-of-yesterday
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
         let calendar = NSCalendar.currentCalendar()
-        let yesterday = calendar.dateByAddingUnit(.Day, value: -4, toDate: NSDate(), options: []) // value -1 is yesterday, -2 is two days ago and so on.
+        let yesterday = calendar.dateByAddingUnit(.Day, value: -daysAgo, toDate: NSDate(), options: []) // value -1 is yesterday, -2 is two days ago and so on.
         let oneDayAgo = dateFormatter.stringFromDate(yesterday!)
         return oneDayAgo
     }
+	
+	static func getStockDataForGraphing(symbol: String, daysAgo: Int, completion: (data: [[AnyObject]!]) -> Void){
+		// Returns an array [[date: close price]]
+		//https://www.quandl.com/api/v3/datasets/WIKI/GE.json?start_date=2016-05-10&column_index=4&order=asc&api_key=L9rgCQ9xtMJ2vExshXgw
+		let api = "https://www.quandl.com/api/v3/datasets/WIKI/"
+		
+		guard let escapedQuery = symbol.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()),
+			let url = NSURL(string: api + escapedQuery + ".json?start_date=" + getStartDate(daysAgo) + "&column_index=4&order=asc" + apiKey)
+			else {
+				return
+		}
+		
+		let task = NSURLSession.sharedSession().dataTaskWithURL(url){
+			(data, response, error) in
+			if error != nil {
+				return
+			}
+			var json = [String: AnyObject]()
+			do {
+				json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! [String: AnyObject]
+			} catch {
+				return
+			}
+			guard let dataset = json["dataset"] as? [String: AnyObject],
+			let data = dataset["data"] as? [[AnyObject]!]
+				else {
+					return
+			}
+			
+			completion(data: data)
+		}
+		task.resume()
+	}
     
     static func getStockData(text: String, completion: (stock: RealmStock) -> Void){
-        print("Received: " + text)
         // https://www.quandl.com/api/v3/datasets/WIKI/AAPL/data.json?start_date=2016-03-29&api_key=L9rgCQ9xtMJ2vExshXgw Old usage
         
         // https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json?start_date=2016-03-29&api_key=L9rgCQ9xtMJ2vExshXgw // This is the best becasue it includes the name of the company instead of having to rely on the previous query to get the name
@@ -102,7 +134,6 @@ class StockManager
             else{
                 return
         }
-        print(url)
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url){
             (data, response, error) in

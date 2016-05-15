@@ -14,11 +14,6 @@ import Charts
 class StockStatsVC: UIViewController{
 	
     @IBOutlet weak var tableView: UITableView!
-//    var realmStock : RealmStock {
-//        didSet {    
-//            leftTitle = realmStock.date
-//        }
-//    }
     var leftTitle: String!
     var leftStat: String!
     var rightTitle: String!
@@ -26,16 +21,35 @@ class StockStatsVC: UIViewController{
     var header: String!
     
     var stats = [[String]]()
+	var stockData = [[AnyObject]!]()
+	var chartXAxis = [String]()
+	var chartYAxis = [Double]()
+	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		
-		print(stats.count)
-		print(stats[0])
+		StockManager.getStockDataForGraphing(header, daysAgo: 5){
+			(data) in dispatch_async(dispatch_get_main_queue()){
+				self.stockData = data
+				self.parseStockData()
+				self.tableView.reloadData()
+			}
+		}
+	}
+	
+	func parseStockData(){
+		var xAxis = [String]()
+		var yAxis = [Double]()
+		for data in self.stockData {
+			xAxis.append(data[0] as! String)
+			yAxis.append(Double(data[1] as! NSNumber))
+		}
+		chartXAxis = xAxis
+		chartYAxis = yAxis
+		tableView.reloadData()
 	}
 }
-
 
 
 extension StockStatsVC: UITableViewDataSource{
@@ -47,7 +61,8 @@ extension StockStatsVC: UITableViewDataSource{
 		
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCellWithIdentifier("chartCell", forIndexPath: indexPath) as! ChartTableViewCell
-//			cell.autoresizesSubviews = true
+			cell.backgroundColor = cell.getChartBackgroundColor()
+			cell.setChart(self.chartXAxis, values: self.chartYAxis)
 			
 			return cell
 		}
@@ -69,10 +84,6 @@ extension StockStatsVC: UITableViewDataSource{
 		}
 		return 50
 	}
-//
-//	func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//		return 160
-//	}
 }
 
 

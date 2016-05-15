@@ -48,14 +48,6 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
-//        Using this to temporally change one value to test update
-//        let realm = try! Realm()
-//        try! realm.write(){
-//            realmTableData[3].close = 1.98
-//        }
-        
-        
         refreshControl.endRefreshing()
         tableView.reloadData()
     }
@@ -145,7 +137,6 @@ class ViewController: UIViewController {
             sender.setTitle(buttonTitle, forState: UIControlState.Normal)
             stockInfoIndex = 1
         case 1:
-            
             buttonTitle = "$" + String(self.realmTableData[sender.tag].change)
             sender.setTitle(buttonTitle, forState: UIControlState.Normal)
             stockInfoIndex = 2
@@ -283,8 +274,6 @@ extension ViewController: UITableViewDelegate{
             print("You have to set up a user name")
             return false
         }
-        
-        
         return true
     }
     
