@@ -29,7 +29,7 @@ class StockStatsVC: UIViewController{
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		StockManager.getStockDataForGraphing(header, daysAgo: 5){
+		StockManager.getStockDataForGraphing(header, daysAgo: 30){
 			(data) in dispatch_async(dispatch_get_main_queue()){
 				self.stockData = data
 				self.parseStockData()

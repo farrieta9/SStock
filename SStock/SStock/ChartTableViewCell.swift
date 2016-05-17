@@ -61,7 +61,15 @@ class ChartTableViewCell: UITableViewCell {
 		}
 		
 		let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Units Sold")
+		
+		// Makes the blue circle/dots disappear
+		lineChartDataSet.drawCirclesEnabled = false
+		
+		// Fills the area under the graph
+		lineChartDataSet.drawFilledEnabled = true
+		
 		let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
+		
 		lineChartView.data = lineChartData
 		
 	}
