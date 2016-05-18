@@ -10,15 +10,18 @@ import UIKit
 import Charts
 
 
-class ChartTableViewCell: UITableViewCell {
+class ChartTableViewCell: UITableViewCell, ChartViewDelegate {
 
 	@IBOutlet weak var lineChartView: LineChartView!
 	
-	var chartBackgroundColor: UIColor!
+//	let marker = BalloonMarker(color: UIColor.blueColor(), font: UIFont (name: "HelveticaNeue-UltraLight", size: 30), insets: <#T##UIEdgeInsets#>)
 	
+	var chartBackgroundColor: UIColor!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+		lineChartView.drawMarkers = true
+		lineChartView.delegate = self
 		lineChartView.xAxis.labelPosition = .Bottom
 		
 		// Disable y axis label from appearing on the right side of the chart
@@ -27,20 +30,15 @@ class ChartTableViewCell: UITableViewCell {
 		
 		setChartBackgroundColor(189, green: 195, blue: 199, transparent: 1)
 		lineChartView.descriptionText = ""
-		
-		lineChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
-		
-		let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-		let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
-		
-		setChart(months, values: unitsSold)
+
+		// Turn off the values that appear on top of the graph
+		lineChartView.maxVisibleValueCount = 1
     }
 	
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+	func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
+		print(entry.value)
+		print(chartView.getMarkerPosition(entry: entry, highlight: highlight))
+	}
 	
 	func getChartBackgroundColor() -> UIColor {
 		return chartBackgroundColor
@@ -72,6 +70,6 @@ class ChartTableViewCell: UITableViewCell {
 		
 		lineChartView.data = lineChartData
 		
+		lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
 	}
-
 }

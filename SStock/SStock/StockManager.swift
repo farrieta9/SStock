@@ -98,6 +98,7 @@ class StockManager
 			else {
 				return
 		}
+//		print(url)
 		
 		let task = NSURLSession.sharedSession().dataTaskWithURL(url){
 			(data, response, error) in
