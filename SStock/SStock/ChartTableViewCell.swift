@@ -14,12 +14,16 @@ class ChartTableViewCell: UITableViewCell, ChartViewDelegate {
 
 	@IBOutlet weak var lineChartView: LineChartView!
 	
-//	let marker = BalloonMarker(color: UIColor.blueColor(), font: UIFont (name: "HelveticaNeue-UltraLight", size: 30), insets: <#T##UIEdgeInsets#>)
-	
 	var chartBackgroundColor: UIColor!
-
+	var markerLabel = UILabel(frame: CGRectMake(0, 0, 200, 21))
+	
     override func awakeFromNib() {
         super.awakeFromNib()
+		self.addSubview(markerLabel)
+		lineChartView.xAxis.drawGridLinesEnabled = false
+//		lineChartView.leftAxis.drawLabelsEnabled = false
+		
+		lineChartView.legend.enabled = false
 		lineChartView.drawMarkers = true
 		lineChartView.delegate = self
 		lineChartView.xAxis.labelPosition = .Bottom
@@ -36,8 +40,10 @@ class ChartTableViewCell: UITableViewCell, ChartViewDelegate {
     }
 	
 	func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
-		print(entry.value)
-		print(chartView.getMarkerPosition(entry: entry, highlight: highlight))
+		let markerPosition = chartView.getMarkerPosition(entry: entry,  highlight: highlight)
+		markerLabel.center = CGPointMake(markerPosition.x, markerPosition.y)
+		markerLabel.textAlignment = NSTextAlignment.Center
+		markerLabel.text = "\(entry.value)"
 	}
 	
 	func getChartBackgroundColor() -> UIColor {
@@ -50,7 +56,6 @@ class ChartTableViewCell: UITableViewCell, ChartViewDelegate {
 	}
 	
 	func setChart(dataPoints: [String], values: [Double]) {
-		
 		var dataEntries: [ChartDataEntry] = []
 		
 		for i in 0..<dataPoints.count {
@@ -58,7 +63,7 @@ class ChartTableViewCell: UITableViewCell, ChartViewDelegate {
 			dataEntries.append(dataEntry)
 		}
 		
-		let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Units Sold")
+		let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "")
 		
 		// Makes the blue circle/dots disappear
 		lineChartDataSet.drawCirclesEnabled = false
@@ -69,7 +74,6 @@ class ChartTableViewCell: UITableViewCell, ChartViewDelegate {
 		let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
 		
 		lineChartView.data = lineChartData
-		
 		lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
 	}
 }

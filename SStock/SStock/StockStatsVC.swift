@@ -25,9 +25,9 @@ class StockStatsVC: UIViewController{
 	var chartXAxis = [String]()
 	var chartYAxis = [Double]()
 	
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
 		
 		StockManager.getStockDataForGraphing(header, daysAgo: 30){
 			(data) in dispatch_async(dispatch_get_main_queue()){
@@ -48,6 +48,10 @@ class StockStatsVC: UIViewController{
 		chartXAxis = xAxis
 		chartYAxis = yAxis
 		tableView.reloadData()
+	}
+	
+	override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+		print("this happened")
 	}
 }
 
@@ -74,6 +78,7 @@ extension StockStatsVC: UITableViewDataSource{
 		cell.labelRightStat.text = stats[indexPath.row][3]
 		return cell
     }
+	
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
